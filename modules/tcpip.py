@@ -8,8 +8,8 @@ class listener:
 # ##########################################################################################################
 #	Protocol:                                                                                                                                                                                                                                                        #
 #	on Connect, must send "PC-LINK\0x0a"                                                                                                                                                                                                              #
-#	Gok send 20 bytes	: nnnnnnnnnnQQQQQQQQQQ	( n ???; Q is value of quanty                                                                                                                                             #
-#	Gok send 19 bytes unknow, may be a coded form of the packed value, ended by 0x0a                                                                                                                                                    #
+#	Gok send 20 bytes	: nn nn nn ii ii QQ QQ QQ QQ QQ	( n ???; iiii id in hex; Q is value of quanty )                                                                                                                   #
+#	Gok send 19 bytes	: nn cc cc hh hh nn nn nn nn \0x0a		( n ???; cccc capacity in Hex; hhhh high in Hex )                                                                                                             #
 # ##########################################################################################################
 	class GokHandler(socketserver.StreamRequestHandler):
 
@@ -19,10 +19,11 @@ class listener:
 			self.wfile.write(b"PC-LINK\n")
 			self.data = self.rfile.read(20).strip()
 			print("{} wrote:".format(self.client_address[0]))
-			print("ID: {}".format( self.data[0:9]))
+			print("ID: {}".format( self.data[6:9]))
 			print("Level: {}".format( self.data[10:19]))
 			self.data = self.rfile.read(19).strip()
-			print(self.data)
+			print("Capacity: {}".format( self.data[2:5]))
+			print("High: {}".format( self.data[6:9]))
 			# Likewise, self.wfile is a file-like object used to write back
 			# to the client
 			
