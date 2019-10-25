@@ -1,5 +1,7 @@
-import socket
-import socketserver
+#!/usr/bin/env python3
+import	socket
+import	socketserver
+from		http.server 		import BaseHTTPRequestHandler, HTTPServer
 
 from threading import Thread
 
@@ -32,7 +34,7 @@ class listener:
 
 
 	def __init__(self, port=8000, ip='0.0.0.0'):
-		self.port		= port
+		self.port	= port
 		self.ip		= ip
 		
 		if 1:
@@ -68,3 +70,63 @@ class listener:
 	def stopServer(self ):
 		self.server.shutdown()
 		self.server.server_close()
+
+# *******************************************************************************************
+
+class	webinterface:
+	
+	class httpHandler(BaseHTTPRequestHandler):
+		def do_HEAD(self):
+			self.send_response(200)
+			self.send_header('Content-type', 'text/html')
+			self.end_headers()
+
+		def do_GET(self):
+			paths = {
+				'/foo': {'status': 200},
+				'/bar': {'status': 302},
+				'/baz': {'status': 404},
+				'/qux': {'status': 500}
+			  }
+
+			if self.path in paths:
+				self.respond(paths[self.path])
+			else:
+				self.respond({'status': 500})
+
+		def handle_http(self, status_code, path):
+			self.send_response(status_code)
+			self.send_header('Content-type', 'text/html')
+			self.end_headers()
+			content = '''
+			<html><head><title>Title goes here.</title></head>
+			<body><p>This is a test.</p>
+			<p>You accessed path: {}</p>
+			</body></html>
+			'''.format(path)
+			return bytes(content, 'UTF-8')
+
+		def respond(self, opts):
+			response = self.handle_http(opts['status'], self.path)
+			self.wfile.write(response)
+		  
+	def __init__(self, port=8001, ip='0.0.0.0'):
+		self.port	= port
+		self.ip		= ip
+		
+		if 1:
+			server_class = HTTPServer
+			self.httpd = server_class((self.ip, self.port), self.httpHandler)
+			
+			self.thread					= Thread(
+													target 	= self.startServer, 
+													args		= (  ))
+			self.thread.start()
+	def startServer(self ):
+			try:
+				self.httpd.serve_forever()
+			except KeyboardInterrupt:
+				pass
+		
+	def stopServer(self ):
+			self.httpd.server_close()
