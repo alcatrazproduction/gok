@@ -9,7 +9,9 @@ class listener:
 #	Protocol:                                                                                                                                                                                                                                                        #
 #	on Connect, must send "PC-LINK\0x0a"                                                                                                                                                                                                              #
 #	Gok send 20 bytes	: nn nn nn ii ii QQ QQ QQ QQ QQ	( n ???; iiii id in hex; Q is value of quanty )                                                                                                                   #
-#	Gok send 19 bytes	: nn cc cc hh hh nn nn nn nn \0x0a		( n ???; cccc capacity in Hex; hhhh high in Hex )                                                                                                             #
+#							  02 11 08 04CF 0000322000
+#	Gok send 19 bytes	: nn cc cc hh hh nn nn nn nn \0x0a		( n ???; cccc capacity in Hex; hhhh high in Hex )   																						#
+#							  21 2134 05DD 0A 0A AA 03
 # ##########################################################################################################
 	class GokHandler(socketserver.StreamRequestHandler):
 
