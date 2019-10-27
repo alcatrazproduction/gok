@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE Project SYSTEM "Project-5.1.dtd">
 <!-- eric project file for project GOK Tank -->
-<!-- Saved: 2019-10-27, 14:08:29 -->
+<!-- Saved: 2019-10-27, 17:56:00 -->
 <!-- Copyright (C) 2019 Yves Huguenin, yves.huguenin@tricala.org -->
 <Project version="5.1">
   <Language></Language>
@@ -25,6 +25,8 @@ will listen on port 8000 for connection from module</Description>
   <Others>
     <Other>.gitignore</Other>
     <Other>Doc/data_dump.txt</Other>
+    <Other>db</Other>
+    <Other>gui</Other>
   </Others>
   <Vcs>
     <VcsType>Git</VcsType>
