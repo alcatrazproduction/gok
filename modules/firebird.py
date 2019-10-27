@@ -5,8 +5,8 @@ import 	fdb
 class link:
 	def __init__(self, theHost, theDb,  theUser,  thePw):
 		self.con = fdb.connect(
-						host		= theHost, 
+						host			= theHost, 
 						database	= theDb,
-						user		= theUser, 
+						user			= theUser, 
 						password	= thePw
 					)

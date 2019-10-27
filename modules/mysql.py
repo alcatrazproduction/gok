@@ -4,4 +4,9 @@ import	pymysql
 
 class link:
 	def __init__(self, theHost, theDb,  theUser,  thePw):
-		None
+		self.con	= pymysql.connect(
+								host				= theHost,
+								 user			= theUser,
+								 password	= thePw,
+								 db				= theDb )
+			

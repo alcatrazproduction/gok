@@ -4,10 +4,6 @@ import	importlib
 
 class db:
 	
-
-	
-
-		
 	def __init__(self, moteur='mysql'):
 		try:
 			self.theDb	= importlib.import_module( "modules."+moteur ).link()
