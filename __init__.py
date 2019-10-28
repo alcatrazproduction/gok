@@ -11,11 +11,11 @@ name = "KSWGok"
 
 from main		import gestion
 
-try:
-	main 	= gestion()
-	main.initDatabase()
-	main.initApplication()
-	main.mainLoop()
-except Exception as inst:
-	print(inst)         
-	exit( -10000 )
+#try:
+main 	= gestion()
+main.initDatabase()
+main.initApplication()
+main.mainLoop()
+#except Exception as inst:
+print(inst)         
+exit( -10000 )
