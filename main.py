@@ -19,7 +19,8 @@ from theApp					import	theApp
 from settings 				import	settings
 #from t_cards 				import	t_cards
 #from dispatcher 			import dispatcher
-from constant			import const		
+from constant				import const
+from modules.gfx		import CiterneGfx
 class gestion:
 	def __init__(self):
 		
@@ -116,6 +117,7 @@ class gestion:
 #		self.app.showDecompte(win)
 		self.win			= win
 #		self.dispatch	= dispatch
+		self.gfx			= CiterneGfx( self.win.mainWindow.centralwidget.tabTank.tab1.dCiterne )
 		
 	def	mainLoop(self):
 #		self.about.close()
