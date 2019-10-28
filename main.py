@@ -117,8 +117,8 @@ class gestion:
 #		self.app.showDecompte(win)
 		self.win			= win
 #		self.dispatch	= dispatch
-		self.gfx			= CiterneGfx( self.win.mainWindow.centralwidget.tabTank.tab1.dCiterne )
-		
+		self.gfx			= CiterneGfx( self.win.dCiterne )
+		self.gfx.draw(50, 100)
 	def	mainLoop(self):
 #		self.about.close()
 #		self.about.info.setText("")

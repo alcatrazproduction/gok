@@ -25,15 +25,18 @@ class CiterneGfx:
 		def __init__(self, theView):
 		
 			self.view 			= theView
-			theScene			= theView.scene
+			theScene			= theView.scene()
 			if theScene == None:
 				theScene	= QGraphicsScene()
+				theView.setScene( theScene )
 			self.scene		= theScene
 			
 		def draw(self,  current,  max):
 			if self.scene:
 				rect		= self.view.sceneRect()
 				self.scene.clear()
+				self.scene.addText("                                                                                          ")
+				self.scene.addRect(20, 50, 150, 350)
 				
 				None
 			None
