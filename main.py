@@ -119,10 +119,13 @@ class gestion:
 #		self.dispatch	= dispatch
 		self.gfx			= CiterneGfx( self.win.dCiterne )
 		self.gfx.draw(50, 100)
+		
 	def	mainLoop(self):
 #		self.about.close()
 #		self.about.info.setText("")
 		self.win.show()
+		while 1:
+			None
 		ret = self.app.exec()
 
 #		self.app.conn.close()

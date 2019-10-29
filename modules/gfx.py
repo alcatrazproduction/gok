@@ -7,9 +7,9 @@
 #	Version:		0.1																												#
 #																																		#
 #######################################################################################################
-#from PyQt5 					import	uic
-#from PyQt5.QtGui			import	QImage ,  QPixmap
-from PyQt5.QtWidgets 	import 	QMessageBox,  QGraphicsScene
+from PyQt5.QtCore	import	Qt
+from PyQt5.QtGui			import		 QPen, QBrush
+from PyQt5.QtWidgets 	import 	  	QGraphicsScene
 
 
 #from datetime 				import	date
@@ -33,10 +33,18 @@ class CiterneGfx:
 			
 		def draw(self,  current,  max):
 			if self.scene:
+				bGreen	= QBrush( Qt.green )
+				bRed		= QBrush( Qt.red )
+				bBlack	= QBrush( Qt.black )
+				bBlue		= QBrush( Qt.blue )
+				pGreen	= QPen( Qt.green )
+				pRed		= QPen( Qt.red )
+				pBlack	= QPen( Qt.black )
+				pBlue		= QPen( Qt.blue )
 				rect		= self.view.sceneRect()
 				self.scene.clear()
 				self.scene.addText("                                                                                          ")
-				self.scene.addRect(20, 50, 150, 350)
+				self.scene.addRect(20, 50, 150, 350, pBlack, bGreen)
 				
 				None
 			None
