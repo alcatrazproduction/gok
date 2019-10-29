@@ -18,14 +18,15 @@ from time					import	sleep
 from theApp					import	theApp
 from settings 				import	settings
 #from t_cards 				import	t_cards
-#from dispatcher 			import dispatcher
+from dispatcher 			import dispatcher
 from constant				import const
 from modules.gfx		import CiterneGfx
+from modules.tcpip	import listener
 class gestion:
 	def __init__(self):
 		
 		self.app 			= theApp([])
-#		self.thePref 	= settings( self.app )
+#		self.thePref 		= settings( self.app )
 #		self.about		= uic.loadUi( const.aboutWindow)
 #		logo 				= QImage( const.logoFile )
 #		self.about.logo.setPixmap(QPixmap.fromImage(logo))
@@ -56,22 +57,13 @@ class gestion:
 		
 		global primaryScreen
 		
-		win 				= uic.loadUi( const.mainWindow )
-#		dispatch			= dispatcher( win, self )
+		win 					= uic.loadUi( const.mainWindow )
+		dispatch			= dispatcher( win, self )
 		primaryScreen	= self.app.primaryScreen()
 		scrSize			= primaryScreen.size()
 		win.move( scrSize.width()/2 - win.width()/2, scrSize.height()/2 - win.width()/2 )
-#		dispatch.resizeWindow()
-#		dispatch.setAbout( self.about )
 		
-
-#		win.actionOuvrir.triggered.connect( lambda checked:  self.app.import_file( win, self ))
 		win.actionQuitter.triggered.connect( win.close)
-#		win.actionApropos.triggered.connect( dispatch.doAbout )
-#		win.actionSetting.triggered.connect( dispatch.doPreferences )
-#		win.DExcel.clicked.connect(dispatch.createExcel)
-#		win.DPdf.clicked.connect(dispatch.createPdf)
-#		win.v_cards.doubleClicked.connect(dispatch.editKey)
 
 		now 	= (date. today()).replace(day=1)
 		mn 	= now.month+1
@@ -80,52 +72,25 @@ class gestion:
 		else:
 			fin=now.replace( month=mn)
 			
-
-#		win.DTDebut.setMaximumDate(fin)
-#		win.DTFin.setMaximumDate(fin)
-#		win.DDDebut.setMaximumDate(fin)
-#		win.DDFin.setMaximumDate(fin)
-
 		mn 	= now.month-1
 		if mn < 0:
 			fin=now.replace(year=now.year-1, month=12)
 		else:
 			fin=now.replace( month=mn)
 			
-#		win.DTDebut.setDate(fin)
-#		win.DTFin.setDate(now)
-#		win.DDDebut.setDate(fin)
-#		win.DDFin.setDate(now)
 
-#		win.DTDebut.dateChanged.connect(dispatch.dateTransaction)
-#		win.DTFin.dateChanged.connect(dispatch.dateTransaction)
-#		win.DDDebut.dateChanged.connect(dispatch.dateDecompte)
-#		win.DDFin.dateChanged.connect(dispatch.dateDecompte)
-
-#		self.about.info.setText("Loading Cards information...")
-
-#		self.cards	=	t_cards(win, self.app)
-#		dispatch.setCards( self.cards )
-#		self.cards.loadCards()
-#		self.app.setCard( self.cards )
-#		self.about.info.setText("Creating Transactions...")
-
-#		self.app.showTransaction(win)
-#		self.about.info.setText("Creating Report...")
-#	self.about.update()
-#		sleep(2)
-#		self.app.showDecompte(win)
 		self.win			= win
-#		self.dispatch	= dispatch
+		self.dispatch	= dispatch
 		self.gfx			= CiterneGfx( self.win.dCiterne )
 		self.gfx.draw(50, 100)
+		self.listener		= listener()
+		self.listener.setCallBack( dispatch.updateTank )
+		self.listener.startServer()
 		
 	def	mainLoop(self):
 #		self.about.close()
 #		self.about.info.setText("")
 		self.win.show()
-		while 1:
-			None
 		ret = self.app.exec()
 
 #		self.app.conn.close()

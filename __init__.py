@@ -17,5 +17,5 @@ main.initDatabase()
 main.initApplication()
 main.mainLoop()
 #except Exception as inst:
-print(inst)         
+#print(inst)         
 exit( -10000 )
