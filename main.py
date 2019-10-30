@@ -85,6 +85,7 @@ class gestion:
 		self.gfx.draw(50, 100)
 		self.listener		= listener()
 		self.listener.setCallBack( dispatch.updateTank )
+		listener.test()
 		self.listener.startServer()
 		
 	def	mainLoop(self):

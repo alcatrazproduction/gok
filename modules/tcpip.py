@@ -5,6 +5,8 @@ from		http.server 		import BaseHTTPRequestHandler, HTTPServer
 
 from threading import Thread
 
+callBack = None
+
 class listener:
 # ##########################################################################################################
 #	Protocol:                                                                                                                                                                                                                                                        #
@@ -19,58 +21,63 @@ class listener:
 	class GokHandler(socketserver.StreamRequestHandler):
 		
 		
-		
-		def setCallBack(self,  theEntry	= None):
-			global callBack
-			callBack	= theEntry
-
 		def handle(self):
 			# self.rfile is a file-like object created by the handler;
 			# we can now use e.g. readline() instead of raw recv() calls
 			
 			global callBack
 			
-			self.wfile.write(b"PC-LINK\n")
-			self.data = self.rfile.read(20).strip()
-			print("{} wrote:".format(self.client_address[0]))
-			ip				= self.client_address[0]
-			print("ID: {}".format( self.data[6:9]))
-			id				= self.data[6:9]
-			level		= self.data[10:19]
-			print("Level: {}".format( self.data[10:19]))
-			self.data = self.rfile.read(19).strip()
-			capacity	= self.data[2:5]
-			print("Capacity: {}".format( self.data[2:5]))
-			high			= self.data[6:9]
-			print("High: {}".format( self.data[6:9]))
-			
-			print( callBack )
-			if callBack:
-				callBack( ip, id, level, capacity, high )
+			try:
+				
+				self.wfile.write(b"PC-LINK\n")
+				self.data = self.rfile.read(20).strip()
+				print("{} wrote:".format(self.client_address[0]))
+				ip				= self.client_address[0]
+				print("ID: {}".format( self.data[6:10]))
+				id				= self.data[6:10]
+				level		= self.data[10:20]
+				print("Level: {}".format( self.data[10:20]))
+				self.data = self.rfile.read(19).strip()
+				capacity	= self.data[2:6]
+				print("Capacity: {}".format( self.data[2:6]))
+				high			= self.data[6:10]
+				print("High: {}".format( self.data[6:10]))
+				
+				if callBack:
+					callBack( ip, id, level, capacity, high )
+			except Exception as inst:
+				print(inst)  
 			# Likewise, self.wfile is a file-like object used to write back
 			# to the client
 			
 
+	def	test():
+		global callBack
+		
+		print("Got it Yeahhh")
+		print(callBack)
 
 	def __init__(self, port=8000, ip='0.0.0.0'):
-		global callBack
+
 		self.port	= port
 		self.ip		= ip
 		
 												
 	def startServer(self ):
-		global callBack
+
 		self.server = socketserver.TCPServer((self.ip, self.port), listener.GokHandler)
 		self.thread					= Thread(
 												target 	= self._startServer, 
 												args		= (  ))
 		self.thread.start()
 		
-	def setCallBack(self,  theEntry	= None):
+	def setCallBack(self,  theEntry):
+		
 		global callBack
 		
+		print( theEntry )
 		callBack	= theEntry
-		listener.GokHandler.setCallBack( theEntry )
+		self.callBack = theEntry
 		
 	def handle(self,  client):
 		request		= client.recv(1024)

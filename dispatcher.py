@@ -68,8 +68,19 @@ class dispatcher:
 
 	def updateTank( self,  ip, id, level, capacity, high ):
 		print("Callback called")
-		None
-	
+		try:
+			if self.win.cSerial.findText(id.decode("utf-8")) == -1:
+				self.win.cSerial.addItem( id.decode() )
+			tLevel	= int( level )
+			tFull		= int( capacity, 16)
+			tHeight	= int( high, 16)
+			self.win.cPercent.setValue( tLevel / tFull )
+			self.win.cCapacity.setText("{}".format(tLevel/100))
+			self.win.cFull.setText("{}".format(tFull))
+			self.win.cHeight.setText("{}".format(tHeight))
+
+		except Exception as inst:
+			print(inst) 	
 ####################################################################################################
 #																																	#
 #																																	#

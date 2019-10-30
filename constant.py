@@ -15,5 +15,6 @@ class const:
 	cardDialog			= "gui/modal_card.ui"
 	prefDialog			= "gui/modal_pref.ui"
 	logoFile				=  r'gui/logo.png'
+	tankFile				=  r'gui/ImageTank.gif'
 # SQL File name
 	schemaFile			= 'sql/schemas.sql'
