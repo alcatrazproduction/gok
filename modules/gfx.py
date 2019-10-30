@@ -24,6 +24,8 @@ from constant			import const
 class CiterneGfx:
 		def __init__(self, theView):
 		
+			print("Init CiternGfx")
+			print( theView )
 			self.view 			= theView
 			theScene			= theView.scene()
 			if theScene == None:
@@ -46,7 +48,7 @@ class CiterneGfx:
 				rect		= self.view.sceneRect()
 				self.scene.clear()
 				self.scene.addPixmap(  self.tank )
-				self.scene.addText("                                                                                          ")
+				self.scene.addText("     HelloWorld                                                                                     ")
 
 				
 				None

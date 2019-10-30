@@ -20,7 +20,7 @@ from settings 				import	settings
 #from t_cards 				import	t_cards
 from dispatcher 			import dispatcher
 from constant				import const
-from modules.gfx		import CiterneGfx
+
 from modules.tcpip	import listener
 class gestion:
 	def __init__(self):
@@ -63,7 +63,6 @@ class gestion:
 		scrSize			= primaryScreen.size()
 		win.move( scrSize.width()/2 - win.width()/2, scrSize.height()/2 - win.width()/2 )
 		
-		win.actionQuitter.triggered.connect( win.close)
 
 		now 	= (date. today()).replace(day=1)
 		mn 	= now.month+1
@@ -81,10 +80,10 @@ class gestion:
 
 		self.win			= win
 		self.dispatch	= dispatch
-		self.gfx			= CiterneGfx( self.win.dCiterne )
-		self.gfx.draw(50, 100)
 		self.listener		= listener()
 		self.listener.setCallBack( dispatch.updateTank )
+		win.actionQuitter.triggered.connect(self.listener.stopServer)
+		self.win.tabTank.clear()
 		listener.test()
 		self.listener.startServer()
 		
