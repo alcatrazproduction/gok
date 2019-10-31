@@ -7,7 +7,7 @@
 #	Version:		0.1																												#
 #																																		#
 #######################################################################################################
-from PyQt5 					import	uic
+from PyQt5 					import	uic, QtCore
 from PyQt5.QtGui			import	QImage ,  QPixmap
 from PyQt5.QtWidgets 	import 	QMessageBox
 
@@ -22,10 +22,15 @@ from dispatcher 			import dispatcher
 from constant				import const
 
 from modules.tcpip	import listener
+
+global _translate
+_translate = QtCore.QCoreApplication.translate
+
 class gestion:
 	def __init__(self):
 		
 		self.app 			= theApp([])
+
 #		self.thePref 		= settings( self.app )
 #		self.about		= uic.loadUi( const.aboutWindow)
 #		logo 				= QImage( const.logoFile )

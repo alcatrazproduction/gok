@@ -74,6 +74,8 @@ class dispatcher( QtCore.QObject ):
 ####################################################################################################
 
 	def updateTank( self,  ip, id, level, capacity, high ):
+		global	_translate
+		
 		print("Callback called")
 		try:
 			tSerial		= int( id, 16)
@@ -208,6 +210,18 @@ class dispatcher( QtCore.QObject ):
 		self.addTabSignal.emit( tSerial )
 		tab[ 'gfx' ]	= CiterneGfx( tab['dCiterne'] )
 		tab[ 'gfx' ].draw(50, 100)
+		
+		tab[ 'label' ].setText(_translate("mainWindow", "Ponrcentage de remplissage:"))
+		tab[ 'label_2' ].setText(_translate("mainWindow", "Litrage:"))
+		tab[ 'label_3' ].setText(_translate("mainWindow", "Citerne / No de serie:"))
+		tab[ 'label_4' ].setText(_translate("mainWindow", "Désignation de la citerne:"))
+		tab[ 'abel_5' ].setText(_translate("mainWindow", "Unité:"))
+		tab[ 'label_6' ].setText(_translate("mainWindow", "Type de citerne:"))
+		tab[ 'label_7' ].setText(_translate("mainWindow", "Volume de la citerne:"))
+		tab[ 'label_8' ].setText(_translate("mainWindow", "Hauteur de la citerne"))
+		tab[ 'label_9' ].setText(_translate("mainWindow", "Temperature:"))
+		tab[ 'label_10' ].setText(_translate("mainWindow", "Date / Heure de la mesure:"))
+		tab[ 'cTime' ].setDisplayFormat(_translate("mainWindow", "dd.MM.yyyy HH:mm"))
 
 	def addTab(self,  tSerial ):
 		self.win.tabTank.addTab(self.tabs[ tSerial ]["tab1"], "{}".format( tSerial ))
