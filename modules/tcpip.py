@@ -1,5 +1,5 @@
 #!/usr/bin/env python3
-import	socket
+
 import	socketserver
 from		http.server 		import BaseHTTPRequestHandler, HTTPServer
 

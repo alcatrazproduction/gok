@@ -76,7 +76,7 @@ class dispatcher( QtCore.QObject ):
 	def updateTank( self,  ip, id, level, capacity, high ):
 		print("Callback called")
 		try:
-			tSerial		= int( id, 19)
+			tSerial		= int( id, 16)
 			tLevel		= int( level )
 			tFull			= int( capacity, 16)
 			tHeight	= int( high, 16)
