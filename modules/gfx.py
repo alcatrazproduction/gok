@@ -22,6 +22,15 @@ from PyQt5.QtWidgets 	import 	  	QGraphicsScene
 from constant			import const		
 
 class CiterneGfx:
+		bGreen			= QBrush( Qt.green )
+		bRed			= QBrush( Qt.red )
+		bBlack			= QBrush( Qt.black )
+		bBlue			= QBrush( Qt.blue )
+		pGreen			= QPen( Qt.green )
+		pRed			= QPen( Qt.red )
+		pBlack			= QPen( Qt.black )
+		pBlue			= QPen( Qt.blue )
+
 		def __init__(self, theView):
 		
 			print("Init CiternGfx")
@@ -44,12 +53,31 @@ class CiterneGfx:
 			
 		def draw(self,  current,  max):
 			if self.scene:
-
-				rect		= self.view.sceneRect()
 				self.scene.clear()
 				self.scene.addPixmap(  self.tank )
-				self.scene.addText("     HelloWorld                                                                                     ")
-
+				y0	= 40.0
+				y1	= 372.0
+				x0	= 1.0
+				x1	= 103.0
+				x2	= 108.0
+				x3	= 114.0
+				x4	= 119.0
+				x5	= 210.0
+				r		= 18.0
 				
-				None
-			None
+				h		= y1 - y0 + r
+				p		= (current * 1.0) / max
+				y		= h - ( h * p )
+				print(current)
+				print(max)
+				print(h)
+				print(p)
+				print(y)
+				if y > y1-y0 :
+					self.scene.addRect(x0, y0, x1-x0, y1,  self.pRed,  self.bRed  )
+					self.scene.addRect(x2, y0, x3-x2, y1,  self.pRed,  self.bRed  )
+					self.scene.addRect(x4, y0, x5-x4, y1,  self.pRed,  self.bRed  )
+				else:
+					self.scene.addRect(x0, y+y0, x1-x0, y1-y0-y, self.pRed,  self.bRed  )
+					self.scene.addRect(x2, y+y0, x3-x2, y1-y0-y,  self.pRed,  self.bRed  )
+					self.scene.addRect(x4, y+y0, x5-x4, y1-y0-y,  self.pRed,  self.bRed  )

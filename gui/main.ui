@@ -136,8 +136,58 @@
          <item row="5" column="1">
           <widget class="QComboBox" name="cUnite">
            <property name="currentText">
-            <string/>
+            <string>Litres</string>
            </property>
+           <item>
+            <property name="text">
+             <string>Litres</string>
+            </property>
+           </item>
+           <item>
+            <property name="text">
+             <string>Metre Cube</string>
+            </property>
+           </item>
+           <item>
+            <property name="text">
+             <string>Pourcent</string>
+            </property>
+           </item>
+           <item>
+            <property name="text">
+             <string>Hauteur(m)</string>
+            </property>
+           </item>
+           <item>
+            <property name="text">
+             <string>Kilogramme</string>
+            </property>
+           </item>
+           <item>
+            <property name="text">
+             <string>IG</string>
+            </property>
+           </item>
+           <item>
+            <property name="text">
+             <string>UG</string>
+            </property>
+           </item>
+           <item>
+            <property name="text">
+             <string>Tonne</string>
+            </property>
+           </item>
+           <item>
+            <property name="text">
+             <string>milliBar</string>
+            </property>
+           </item>
+           <item>
+            <property name="text">
+             <string>kiloPascal</string>
+            </property>
+           </item>
           </widget>
          </item>
          <item row="6" column="0">

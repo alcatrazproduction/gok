@@ -98,5 +98,5 @@ class gestion:
 		self.win.show()
 		ret = self.app.exec()
 
-#		self.app.conn.close()
+		self.listener.stopServer
 		exit( ret )

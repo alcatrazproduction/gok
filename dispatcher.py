@@ -11,8 +11,9 @@ from PyQt5 				import QtCore, QtGui, QtWidgets
 from modules.gfx		import CiterneGfx
 
 class dispatcher( QtCore.QObject ):
-	addTabSignal 		= QtCore.pyqtSignal( int )
-	createTabSignal 	= QtCore.pyqtSignal( str, int, int, int, int )
+	addTabSignal 			= QtCore.pyqtSignal( int )
+	createTabSignal 		= QtCore.pyqtSignal( str, int, int, int, int )
+	receivedTankSignal	= QtCore.pyqtSignal( str, int, int, int, int )
 ####################################################################################################
 #																																	#
 #																																	#
@@ -26,6 +27,7 @@ class dispatcher( QtCore.QObject ):
 		self.tabs		= {}
 		self.addTabSignal.connect( self.addTab )
 		self.createTabSignal.connect( self.createTab )
+		self.receivedTankSignal.connect( self._updateTank )
 
 		
 ####################################################################################################
@@ -72,30 +74,37 @@ class dispatcher( QtCore.QObject ):
 #																																	#
 #																																	#
 ####################################################################################################
-
+	def _updateTank( self,  ip, tSerial, tLevel, tFull, tHeight ):
+		try:			
+			if tSerial in self.tabs:
+				tab		= self.tabs[tSerial]
+				tab[ 'cPercent' ].setValue( tLevel / tFull * 100)
+				tab[ 'cCapacity' ].setText("{}".format(tLevel))
+				tab[ 'cFull' ].setText("{}".format(tFull))
+				tab[ 'cHeight' ].setText("{}".format(tHeight))
+				tab[ 'gfx' ].draw( tLevel, tFull)
+			else:
+				self.createTabSignal.emit( ip, tSerial, tLevel, tFull, tHeight )
+		except Exception as inst:
+			print(inst)
+			
 	def updateTank( self,  ip, id, level, capacity, high ):
 		global	_translate
 		
 		print("Callback called")
 		try:
 			tSerial		= int( id, 16)
-			tLevel		= int( level )
+			tLevel		= int( level ) / 100.0
 			tFull			= int( capacity, 16)
 			tHeight	= int( high, 16)
 			
-			if tSerial in self.tabs:
-				tab		= self.tabs[tSerial]
-				tab[ 'cPercent' ].setValue( tLevel / tFull )
-				tab[ 'cCapacity' ].setText("{}".format(tLevel/100))
-				tab[ 'cFull' ].setText("{}".format(tFull))
-				tab[ 'cHeight' ].setText("{}".format(tHeight))
-			else:
-				self.createTabSignal.emit( ip, tSerial, tLevel, tFull, tHeight )
+			self.receivedTankSignal.emit( ip, tSerial, tLevel, tFull, tHeight )
 		except Exception as inst:
 			print(inst) 	
 
 	def createTab(self,  ip,  tSerial, tLevel, tFull, tHeight ):
 		
+		_translate 			= QtCore.QCoreApplication.translate
 		tab						= {}
 
 		tab['tab1'] 		= QtWidgets.QWidget()
@@ -203,25 +212,38 @@ class dispatcher( QtCore.QObject ):
 		tab['horizontalLayout'].addWidget(tab['dCiterne'])
 		
 		self.tabs[ tSerial ] = tab
-		tab[ 'cPercent' ].setValue( tLevel / tFull )
-		tab[ 'cCapacity' ].setText("{}".format(tLevel/100))
-		tab[ 'cFull' ].setText("{}".format(tFull))
-		tab[ 'cHeight' ].setText("{}".format(tHeight))
+		tab[ 'cPercent' ].setValue( tLevel / tFull * 100)
+		tab[ 'cCapacity' ].setText("{}".format( tLevel ))
+		tab[ 'cFull' ].setText("{}".format( tFull ))
+		tab[ 'cHeight' ].setText("{}".format( tHeight ))
+		tab[ 'cSerial' ].setText("{}".format( tSerial ))
 		self.addTabSignal.emit( tSerial )
 		tab[ 'gfx' ]	= CiterneGfx( tab['dCiterne'] )
-		tab[ 'gfx' ].draw(50, 100)
+		tab[ 'gfx' ].draw( tLevel, tFull)
 		
-		tab[ 'label' ].setText(_translate("mainWindow", "Ponrcentage de remplissage:"))
+		tab[ 'label' ].setText(_translate("mainWindow", "Pourcentage de remplissage:"))
 		tab[ 'label_2' ].setText(_translate("mainWindow", "Litrage:"))
 		tab[ 'label_3' ].setText(_translate("mainWindow", "Citerne / No de serie:"))
 		tab[ 'label_4' ].setText(_translate("mainWindow", "Désignation de la citerne:"))
-		tab[ 'abel_5' ].setText(_translate("mainWindow", "Unité:"))
+		tab[ 'label_5' ].setText(_translate("mainWindow", "Unité:"))
 		tab[ 'label_6' ].setText(_translate("mainWindow", "Type de citerne:"))
 		tab[ 'label_7' ].setText(_translate("mainWindow", "Volume de la citerne:"))
 		tab[ 'label_8' ].setText(_translate("mainWindow", "Hauteur de la citerne"))
 		tab[ 'label_9' ].setText(_translate("mainWindow", "Temperature:"))
 		tab[ 'label_10' ].setText(_translate("mainWindow", "Date / Heure de la mesure:"))
 		tab[ 'cTime' ].setDisplayFormat(_translate("mainWindow", "dd.MM.yyyy HH:mm"))
+		
+		tab[ 'cUnite' ].setCurrentText(_translate("mainWindow", "Litres"))
+		tab[ 'cUnite' ].setItemText(0, _translate("mainWindow", "Litres"))
+		tab[ 'cUnite' ].setItemText(1, _translate("mainWindow", "Metre Cube"))
+		tab[ 'cUnite' ].setItemText(2, _translate("mainWindow", "Pourcent"))
+		tab[ 'cUnite' ].setItemText(3, _translate("mainWindow", "Hauteur(m)"))
+		tab[ 'cUnite' ].setItemText(4, _translate("mainWindow", "Kilogramme"))
+		tab[ 'cUnite' ].setItemText(5, _translate("mainWindow", "IG"))
+		tab[ 'cUnite' ].setItemText(6, _translate("mainWindow", "UG"))
+		tab[ 'cUnite' ].setItemText(7, _translate("mainWindow", "Tonne"))
+		tab[ 'cUnite' ].setItemText(8, _translate("mainWindow", "milliBar"))
+		tab[ 'cUnite' ].setItemText(9, _translate("mainWindow", "kiloPascal"))
 
 	def addTab(self,  tSerial ):
 		self.win.tabTank.addTab(self.tabs[ tSerial ]["tab1"], "{}".format( tSerial ))
