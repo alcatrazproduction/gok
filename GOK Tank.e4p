@@ -13,8 +13,8 @@ will listen on port 8000 for connection from module</Description>
   <Version>0.1</Version>
   <Author>Yves Huguenin</Author>
   <Email>yves.huguenin@tricala.org</Email>
-  <TranslationPattern>gui/tranlation/%language%_%language%.ts</TranslationPattern>
-  <TranslationsBinPath>gui/tranlation</TranslationsBinPath>
+  <TranslationPattern>gui/translation/%language%_%language%.ts</TranslationPattern>
+  <TranslationsBinPath>gui/translation</TranslationsBinPath>
   <Eol index="0"/>
   <Sources>
     <Source>__init__.py</Source>
@@ -31,13 +31,11 @@ will listen on port 8000 for connection from module</Description>
     <Source>theApp.py</Source>
   </Sources>
   <Translations>
-    <Translation>gui/main.qm</Translation>
-    <Translation>gui/main.ts</Translation>
-    <Translation>gui/tranlation/de_de.qm</Translation>
-    <Translation>gui/tranlation/de_de.ts</Translation>
-    <Translation>gui/tranlation/en_en.ts</Translation>
-    <Translation>gui/tranlation/fr_fr.ts</Translation>
-    <Translation>gui/tranlation/it_it.ts</Translation>
+    <Translation>gui/translation/de_de.qm</Translation>
+    <Translation>gui/translation/de_de.ts</Translation>
+    <Translation>gui/translation/en_en.ts</Translation>
+    <Translation>gui/translation/fr_fr.ts</Translation>
+    <Translation>gui/translation/it_it.ts</Translation>
   </Translations>
   <Others>
     <Other>.gitignore</Other>

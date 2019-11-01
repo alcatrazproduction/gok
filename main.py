@@ -64,14 +64,18 @@ class gestion:
 	def initApplication(self):
 		
 		global primaryScreen
+		global _translate
 		
 		win 					= uic.loadUi( const.mainWindow )
 		dispatch			= dispatcher( win, self )
 		primaryScreen	= self.app.primaryScreen()
-		scrSize			= primaryScreen.size()
+		scrSize				= primaryScreen.size()
 		win.move( scrSize.width()/2 - win.width()/2, scrSize.height()/2 - win.width()/2 )
 		
-
+		win.setWindowTitle(_translate("mainWindow", "KSW_Gok"))
+		win.menuFichier.setTitle(_translate("mainWindow", "Fic&hier"))
+		win.actionQuitter.setText(_translate("mainWindow", "&Quitter"))
+		
 		now 	= (date. today()).replace(day=1)
 		mn 	= now.month+1
 		if mn > 12:

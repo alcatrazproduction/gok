@@ -340,12 +340,106 @@
     </property>
     <addaction name="actionQuitter"/>
    </widget>
+   <widget class="QMenu" name="menuHelp">
+    <property name="title">
+     <string>Aide</string>
+    </property>
+    <widget class="QMenu" name="menuLangues">
+     <property name="title">
+      <string>Langues</string>
+     </property>
+     <addaction name="actionFran_ais"/>
+     <addaction name="actionItalien"/>
+     <addaction name="actionAllemand"/>
+     <addaction name="actionAnglais"/>
+    </widget>
+    <addaction name="menuLangues"/>
+    <addaction name="actionPr_ferences"/>
+    <addaction name="separator"/>
+    <addaction name="actionApropos"/>
+   </widget>
    <addaction name="menuFichier"/>
+   <addaction name="menuHelp"/>
   </widget>
   <widget class="QStatusBar" name="statusbar"/>
   <action name="actionQuitter">
    <property name="text">
     <string>&amp;Quitter</string>
+   </property>
+   <property name="shortcut">
+    <string notr="true">Ctrl+Q</string>
+   </property>
+   <property name="menuRole">
+    <enum>QAction::QuitRole</enum>
+   </property>
+  </action>
+  <action name="actionApropos">
+   <property name="text">
+    <string>A propos</string>
+   </property>
+  </action>
+  <action name="actionFran_ais">
+   <property name="checkable">
+    <bool>true</bool>
+   </property>
+   <property name="checked">
+    <bool>true</bool>
+   </property>
+   <property name="text">
+    <string>Français</string>
+   </property>
+   <property name="shortcut">
+    <string notr="true"/>
+   </property>
+   <property name="menuRole">
+    <enum>QAction::PreferencesRole</enum>
+   </property>
+  </action>
+  <action name="actionItalien">
+   <property name="checkable">
+    <bool>true</bool>
+   </property>
+   <property name="enabled">
+    <bool>false</bool>
+   </property>
+   <property name="text">
+    <string>Italien</string>
+   </property>
+   <property name="menuRole">
+    <enum>QAction::PreferencesRole</enum>
+   </property>
+  </action>
+  <action name="actionAllemand">
+   <property name="checkable">
+    <bool>true</bool>
+   </property>
+   <property name="enabled">
+    <bool>true</bool>
+   </property>
+   <property name="text">
+    <string>Allemand</string>
+   </property>
+   <property name="menuRole">
+    <enum>QAction::PreferencesRole</enum>
+   </property>
+  </action>
+  <action name="actionAnglais">
+   <property name="checkable">
+    <bool>true</bool>
+   </property>
+   <property name="enabled">
+    <bool>false</bool>
+   </property>
+   <property name="text">
+    <string>Anglais</string>
+   </property>
+   <property name="menuRole">
+    <enum>QAction::PreferencesRole</enum>
+   </property>
+  </action>
+  <action name="actionPr_ferences">
+   <property name="text">
+    <string>Préferences...</string>
    </property>
   </action>
  </widget>

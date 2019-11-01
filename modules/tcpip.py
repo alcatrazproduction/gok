@@ -30,7 +30,7 @@ class listener:
 			try:
 				
 				self.wfile.write(b"PC-LINK\n")
-				self.data = self.rfile.read(20).strip()
+				self.data 	= self.rfile.read(20).strip()
 				print("{} wrote:".format(self.client_address[0]))
 				ip				= self.client_address[0]
 				print("ID: {}".format( self.data[6:10]))
@@ -47,22 +47,18 @@ class listener:
 					callBack( ip, id, level, capacity, high )
 			except Exception as inst:
 				print(inst)  
-			# Likewise, self.wfile is a file-like object used to write back
-			# to the client
-			
-
-	def	test():
-		global callBack
-		
-		print("Got it Yeahhh")
-		print(callBack)
 
 	def __init__(self, port=8000, ip='0.0.0.0'):
 
 		self.port	= port
 		self.ip		= ip
-		
-												
+
+	def __del__(self):
+		try:
+			self.stopServer()
+		except Exception as inst:
+			print(inst)  
+
 	def startServer(self ):
 
 		self.server = socketserver.TCPServer((self.ip, self.port), listener.GokHandler)
@@ -74,10 +70,9 @@ class listener:
 	def setCallBack(self,  theEntry):
 		
 		global callBack
-		
-		print( theEntry )
-		callBack	= theEntry
-		self.callBack = theEntry
+
+		callBack			= theEntry
+		self.callBack 	= theEntry
 		
 	def handle(self,  client):
 		request		= client.recv(1024)
@@ -85,11 +80,17 @@ class listener:
 		client.send('PC-LINK')
 	
 	def _startServer(self ):
-		self.server.serve_forever()
+		try:
+			self.server.serve_forever()
+		except Exception as inst:
+			print("Exception in modules.tcpip.listener._startServer {}".format(inst) )  
 		
 	def stopServer(self ):
-		self.server.shutdown()
-		self.server.server_close()
+		try:
+			self.server.shutdown()
+			self.server.server_close()
+		except Exception as inst:
+			print("Exception in modules.tcpip.listener.stopServer {}".format(inst) )  
 
 # *******************************************************************************************
 
@@ -107,7 +108,7 @@ class	webinterface:
 				'/bar': {'status': 302},
 				'/baz': {'status': 404},
 				'/qux': {'status': 500}
-			  }
+						}
 
 			if self.path in paths:
 				self.respond(paths[self.path])
@@ -129,7 +130,7 @@ class	webinterface:
 		def respond(self, opts):
 			response = self.handle_http(opts['status'], self.path)
 			self.wfile.write(response)
-		  
+
 	def __init__(self, port=8001, ip='0.0.0.0'):
 		self.port	= port
 		self.ip		= ip
