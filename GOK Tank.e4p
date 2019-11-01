@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE Project SYSTEM "Project-5.1.dtd">
 <!-- eric project file for project GOK Tank -->
-<!-- Saved: 2019-10-31, 19:03:15 -->
+<!-- Saved: 2019-11-01, 20:21:00 -->
 <!-- Copyright (C) 2019 Yves Huguenin, yves.huguenin@tricala.org -->
 <Project version="5.1">
   <Language></Language>
@@ -13,6 +13,8 @@ will listen on port 8000 for connection from module</Description>
   <Version>0.1</Version>
   <Author>Yves Huguenin</Author>
   <Email>yves.huguenin@tricala.org</Email>
+  <TranslationPattern>gui/tranlation/%language%_%language%.ts</TranslationPattern>
+  <TranslationsBinPath>gui/tranlation</TranslationsBinPath>
   <Eol index="0"/>
   <Sources>
     <Source>__init__.py</Source>
@@ -31,6 +33,8 @@ will listen on port 8000 for connection from module</Description>
   <Translations>
     <Translation>gui/main.qm</Translation>
     <Translation>gui/main.ts</Translation>
+    <Translation>gui/tranlation/de_de.qm</Translation>
+    <Translation>gui/tranlation/de_de.ts</Translation>
   </Translations>
   <Others>
     <Other>.gitignore</Other>
