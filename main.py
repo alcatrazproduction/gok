@@ -34,6 +34,7 @@ class gestion:
 		translator			= QtCore.QTranslator()
 #		_translate.load("hellotr_la");
 		self.app.installTranslator(translator)
+		_translate = QtCore.QCoreApplication.translate
 #		self.thePref 		= settings( self.app )
 #		self.about		= uic.loadUi( const.aboutWindow)
 #		logo 				= QImage( const.logoFile )
@@ -72,10 +73,20 @@ class gestion:
 		scrSize				= primaryScreen.size()
 		win.move( scrSize.width()/2 - win.width()/2, scrSize.height()/2 - win.width()/2 )
 		
+	
 		win.setWindowTitle(_translate("mainWindow", "KSW_Gok"))
 		win.menuFichier.setTitle(_translate("mainWindow", "Fic&hier"))
 		win.actionQuitter.setText(_translate("mainWindow", "&Quitter"))
-		
+		win.menuHelp.setTitle(_translate("mainWindow", "Aide"))
+		win.menuLangues.setTitle(_translate("mainWindow", "Langues"))
+		win.actionQuitter.setText(_translate("mainWindow", "&Quitter"))
+		win.actionApropos.setText(_translate("mainWindow", "A propos"))
+		win.actionFran_ais.setText(_translate("mainWindow", "Français"))
+		win.actionItalien.setText(_translate("mainWindow", "Italien"))
+		win.actionAllemand.setText(_translate("mainWindow", "Allemand"))
+		win.actionAnglais.setText(_translate("mainWindow", "Anglais"))
+		win.actionPr_ferences.setText(_translate("mainWindow", "Préferences..."))
+
 		now 	= (date. today()).replace(day=1)
 		mn 	= now.month+1
 		if mn > 12:
@@ -96,7 +107,6 @@ class gestion:
 		self.listener.setCallBack( dispatch.updateTank )
 		win.actionQuitter.triggered.connect(self.listener.stopServer)
 		self.win.tabTank.clear()
-		listener.test()
 		self.listener.startServer()
 		
 	def	mainLoop(self):
