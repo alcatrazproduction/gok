@@ -103,8 +103,8 @@ class dispatcher( QtCore.QObject ):
 			print(inst) 	
 
 	def createTab(self,  ip,  tSerial, tLevel, tFull, tHeight ):
-		
-		_translate 			= QtCore.QCoreApplication.translate
+		global	_translate
+		_translate 		= QtCore.QCoreApplication.translate
 		tab						= {}
 
 		tab['tab1'] 		= QtWidgets.QWidget()

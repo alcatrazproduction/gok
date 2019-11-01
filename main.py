@@ -24,13 +24,16 @@ from constant				import const
 from modules.tcpip	import listener
 
 global _translate
-_translate = QtCore.QCoreApplication.translate
 
 class gestion:
 	def __init__(self):
-		
+		global _translate
+		global translator
 		self.app 			= theApp([])
-
+		
+		translator			= QtCore.QTranslator()
+#		_translate.load("hellotr_la");
+		self.app.installTranslator(translator)
 #		self.thePref 		= settings( self.app )
 #		self.about		= uic.loadUi( const.aboutWindow)
 #		logo 				= QImage( const.logoFile )
