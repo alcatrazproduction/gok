@@ -18,12 +18,15 @@ wait		= 15
 gok		= {}	
 
 def	send( HOST, PORT, data):
-	with socket.socket(socket.AF_INET, socket.SOCK_STREAM) as s:
-		s.connect((HOST, PORT))
-		response	= s.recv(1024)
-		print( response )
-		s.sendall( data)
-		s.close()
+	try:
+		with socket.socket(socket.AF_INET, socket.SOCK_STREAM) as s:
+			s.connect((HOST, PORT))
+			response	= s.recv(1024)
+			print( response )
+			s.sendall( data)
+			s.close()
+	except:
+		None
 
 def	generate(serial, capacity, height, value):
 #	Gok send 20 bytes	: nn nn nn ii ii QQ QQ QQ QQ QQ	( n ???; iiii id in hex; Q is value of quanty )                                                                                                                   #
@@ -39,7 +42,6 @@ def	doSimul():
 			nibble = generate( s, d[0], d[1], randrange(0, d[0]))
 			print ( nibble )
 			send( ip,  port,  nibble )
-			None
 		sleep( wait )
 		
 
