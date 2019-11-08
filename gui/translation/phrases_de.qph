@@ -1,0 +1,23 @@
+<!DOCTYPE QPH>
+<QPH sourcelanguage="fr" language="de">
+<phrase>
+    <source>Litres</source>
+    <target>Liter</target>
+</phrase>
+<phrase>
+    <source>Metre Cube</source>
+    <target>Kubikmeter</target>
+</phrase>
+<phrase>
+    <source>Pourcent</source>
+    <target>Prozent</target>
+</phrase>
+<phrase>
+    <source>Hauteur(m)</source>
+    <target>Meter</target>
+</phrase>
+<phrase>
+    <source>Kilogramme</source>
+    <target>Kilogramm</target>
+</phrase>
+</QPH>
