@@ -12,6 +12,8 @@ Then, in a PowerShell as Administrator
 type in the command:
 
 pip install pyqt5
+pip install pysqlite3
+pip install fdb
 
 and unzip the source from github of gok
 in a folder and that is.
