@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE Project SYSTEM "Project-5.1.dtd">
 <!-- eric project file for project GOK Tank -->
-<!-- Saved: 2019-11-09, 17:19:01 -->
+<!-- Saved: 2019-11-09, 17:24:13 -->
 <!-- Copyright (C) 2019 Yves Huguenin, yves.huguenin@tricala.org -->
 <Project version="5.1">
   <Language></Language>
@@ -9,7 +9,8 @@
   <ProgLanguage mixed="0">Python3</ProgLanguage>
   <ProjectType>PyQt5</ProjectType>
   <Description>GOK PCSet emmulation programme
-will listen on port 8000 for connection from module</Description>
+will listen on port 8000 for connection from module by default 
+but will be possible to customise and add more ports</Description>
   <Version>0.1</Version>
   <Author>Yves Huguenin</Author>
   <Email>yves.huguenin@tricala.org</Email>
@@ -30,6 +31,8 @@ will listen on port 8000 for connection from module</Description>
     <Source>modules/tables.py</Source>
     <Source>modules/tcpip.py</Source>
     <Source>settings.py</Source>
+    <Source>sql/schema.sql</Source>
+    <Source>sql/schema_fdb.sql</Source>
     <Source>testing/simulator.py</Source>
     <Source>theApp.py</Source>
   </Sources>
@@ -53,8 +56,6 @@ will listen on port 8000 for connection from module</Description>
     <Other>gui/translation/phrases_en.qph</Other>
     <Other>gui/translation/phrases_fr.qph</Other>
     <Other>gui/translation/phrases_it.qph</Other>
-    <Other>sql/schema.sql</Other>
-    <Other>sql/schema_fdb.sql</Other>
   </Others>
   <MainScript>__init__.py</MainScript>
   <Vcs>
@@ -172,6 +173,7 @@ will listen on port 8000 for connection from module</Description>
     <FiletypeAssociation pattern="*.qm" type="TRANSLATIONS"/>
     <FiletypeAssociation pattern="*.qrc" type="RESOURCES"/>
     <FiletypeAssociation pattern="*.rst" type="OTHERS"/>
+    <FiletypeAssociation pattern="*.sql" type="SOURCES"/>
     <FiletypeAssociation pattern="*.ts" type="TRANSLATIONS"/>
     <FiletypeAssociation pattern="*.txt" type="OTHERS"/>
     <FiletypeAssociation pattern="*.ui" type="FORMS"/>
