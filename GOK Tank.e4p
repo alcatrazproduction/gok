@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE Project SYSTEM "Project-5.1.dtd">
 <!-- eric project file for project GOK Tank -->
-<!-- Saved: 2019-11-09, 15:19:29 -->
+<!-- Saved: 2019-11-09, 17:19:01 -->
 <!-- Copyright (C) 2019 Yves Huguenin, yves.huguenin@tricala.org -->
 <Project version="5.1">
   <Language></Language>
@@ -54,6 +54,7 @@ will listen on port 8000 for connection from module</Description>
     <Other>gui/translation/phrases_fr.qph</Other>
     <Other>gui/translation/phrases_it.qph</Other>
     <Other>sql/schema.sql</Other>
+    <Other>sql/schema_fdb.sql</Other>
   </Others>
   <MainScript>__init__.py</MainScript>
   <Vcs>
