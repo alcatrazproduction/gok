@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE Project SYSTEM "Project-5.1.dtd">
 <!-- eric project file for project GOK Tank -->
-<!-- Saved: 2019-11-08, 21:35:50 -->
+<!-- Saved: 2019-11-09, 15:19:29 -->
 <!-- Copyright (C) 2019 Yves Huguenin, yves.huguenin@tricala.org -->
 <Project version="5.1">
   <Language></Language>
@@ -27,6 +27,7 @@ will listen on port 8000 for connection from module</Description>
     <Source>modules/gfx.py</Source>
     <Source>modules/mysql.py</Source>
     <Source>modules/sql.py</Source>
+    <Source>modules/tables.py</Source>
     <Source>modules/tcpip.py</Source>
     <Source>settings.py</Source>
     <Source>testing/simulator.py</Source>
@@ -52,6 +53,7 @@ will listen on port 8000 for connection from module</Description>
     <Other>gui/translation/phrases_en.qph</Other>
     <Other>gui/translation/phrases_fr.qph</Other>
     <Other>gui/translation/phrases_it.qph</Other>
+    <Other>sql/schema.sql</Other>
   </Others>
   <MainScript>__init__.py</MainScript>
   <Vcs>
