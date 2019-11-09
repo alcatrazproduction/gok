@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE Project SYSTEM "Project-5.1.dtd">
 <!-- eric project file for project GOK Tank -->
-<!-- Saved: 2019-11-09, 17:56:24 -->
+<!-- Saved: 2019-11-09, 18:15:43 -->
 <!-- Copyright (C) 2019 Yves Huguenin, yves.huguenin@tricala.org -->
 <Project version="5.1">
   <Language></Language>
@@ -28,11 +28,13 @@ but will be possible to customise and add more ports</Description>
     <Source>modules/gfx.py</Source>
     <Source>modules/mysql.py</Source>
     <Source>modules/sql.py</Source>
+    <Source>modules/sqlite3.py</Source>
     <Source>modules/tables.py</Source>
     <Source>modules/tcpip.py</Source>
     <Source>settings.py</Source>
     <Source>sql/schema.sql</Source>
     <Source>sql/schema_fdb.sql</Source>
+    <Source>sql/schema_sqlite3.sql</Source>
     <Source>testing/simulator.py</Source>
     <Source>theApp.py</Source>
   </Sources>
