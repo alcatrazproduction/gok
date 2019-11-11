@@ -14,7 +14,7 @@ class const:
 	aboutWindow		= "gui/about.ui"
 	cardDialog			= "gui/modal_card.ui"
 	prefDialog			= "gui/modal_pref.ui"
-	logoFile				=  r'gui/logo.png'
-	tankFile				=  r'gui/ImageTank.gif'
+	logoFile				=  r'gui/resources/logo.png'
+	tankFile				=  r'gui/resources/ImageTank.gif'
 # SQL File name
 	schemaFile			= 'sql/schemas.sql'

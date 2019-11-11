@@ -1,12 +1,12 @@
-from PyQt5					import 	QtCore, uic
+from PyQt5						import 	QtCore, uic
 from PyQt5.QtWidgets 	import   QTableWidgetItem
 import pickle
 
-from constant 				import const
+from constant 					import const
 
 class settings:
 	elems = [{
-		'WANumber':0, 
+		'DBEngine':'sqlite3', 
 		'DBHost':'', 
 		'DBPort':3306, 
 		'DBUser':'', 
@@ -94,24 +94,24 @@ class settings:
 		return ret
 		
 	def readFile(self):
-		theFile		= open( self.fileName,  "rb")
-		self.elems 	= pickle.load(  theFile )
-		theFile.close()
 		try:
+			theFile		= open( self.fileName,  "rb")
+			self.elems 	= pickle.load(  theFile )
+			theFile.close()
 			if self.elems[0]['Nom'] is None:
 				self.elems[0]['Nom'] = self.elems[0]['DBHost'] + ' ' + str( self.elems[0]['WANumber'] )
 			
 		except:
 			print( self.elems )
-			newelems = [{
-				'WANumber':self.elems['WANumber'], 
-				'DBHost':self.elems['DBHost'], 
-				'DBPort':self.elems['DBPort'], 
-				'DBUser':self.elems['DBUser'], 
-				'DBPass':self.elems['DBPass'], 
-				'DBdb':self.elems['DBdb'], 
-				'Nom':self.elems['DBHost'] + ' ' + str( self.elems['WANumber'] )
-				}]
+			newelems = self.elems
+#			[{
+#				'DBHost':self.elems['DBHost'], 
+#				'DBPort':self.elems['DBPort'], 
+#				'DBUser':self.elems['DBUser'], 
+#				'DBPass':self.elems['DBPass'], 
+#				'DBdb':self.elems['DBdb'], 
+#				'Nom':self.elems['DBHost'] 
+#				}]
 			print( newelems )
 			self.elems = newelems
 			self.writeFile()
@@ -122,3 +122,12 @@ class settings:
 		theFile		= open( self.fileName,  "wb")
 		pickle.dump( self.elems, theFile )
 		theFile.close()
+		
+	def retranslateUi(self, Dialog):
+		_translate = QtCore.QCoreApplication.translate
+		Dialog.setWindowTitle(_translate("Dialog", "Préferences"))
+		self.mdbLabel.setText(_translate("Dialog", "Moteur Base de Données"))
+		self.dbHostLabel.setText(_translate("Dialog", "DbHost"))
+		self.dbUserLabel.setText(_translate("Dialog", "DbUser"))
+		self.dbPassLabel.setText(_translate("Dialog", "DbPass"))
+		self.dbNameLabel.setText(_translate("Dialog", "DbName"))

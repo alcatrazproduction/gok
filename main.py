@@ -13,15 +13,15 @@ from PyQt5.QtWidgets 	import 	QMessageBox
 
 
 from datetime 				import	date
-from time					import	sleep
+from time						import	sleep
 
 from theApp					import	theApp
-from settings 				import	settings
+from settings 					import	settings
 #from t_cards 				import	t_cards
-from dispatcher 			import dispatcher
-from constant				import const
+from dispatcher 				import dispatcher
+from constant					import const
 
-from modules.tcpip	import listener
+from modules.tcpip		import listener
 
 global _translate
 
@@ -35,13 +35,13 @@ class gestion:
 #		_translate.load("hellotr_la");
 		self.app.installTranslator(translator)
 		_translate = QtCore.QCoreApplication.translate
-#		self.thePref 		= settings( self.app )
-#		self.about		= uic.loadUi( const.aboutWindow)
+		self.thePref 		= settings( self.app )
+		self.about		= uic.loadUi( const.aboutWindow)
 #		logo 				= QImage( const.logoFile )
 #		self.about.logo.setPixmap(QPixmap.fromImage(logo))
 #		self.about.info.setText("Initialising Application")
-#		self.about.show()
-#		sleep(2)
+		self.about.show()
+		sleep(2)
 		
 	def initDatabase(self):
 		

@@ -1,5 +1,39 @@
 <?xml version="1.0" encoding="utf-8"?>
-<!DOCTYPE TS><TS version="2.0" language="fr" sourcelanguage="fr">
+<!DOCTYPE TS>
+<TS version="2.1" language="fr" sourcelanguage="fr">
+<context>
+    <name>Dialog</name>
+    <message>
+        <location filename="../../settings.py" line="128"/>
+        <source>Préferences</source>
+        <translation>Préferences</translation>
+    </message>
+    <message>
+        <location filename="../../settings.py" line="129"/>
+        <source>Moteur Base de Données</source>
+        <translation>Moteur Base de Données</translation>
+    </message>
+    <message>
+        <location filename="../../settings.py" line="130"/>
+        <source>DbHost</source>
+        <translation>Adresse du serveur</translation>
+    </message>
+    <message>
+        <location filename="../../settings.py" line="131"/>
+        <source>DbUser</source>
+        <translation>Nom d&apos;utilisateur</translation>
+    </message>
+    <message>
+        <location filename="../../settings.py" line="132"/>
+        <source>DbPass</source>
+        <translation>Mot de passe</translation>
+    </message>
+    <message>
+        <location filename="../../settings.py" line="133"/>
+        <source>DbName</source>
+        <translation>Nom de la base de données</translation>
+    </message>
+</context>
 <context>
     <name>mainWindow</name>
     <message>
@@ -129,7 +163,7 @@
     </message>
     <message>
         <location filename="../../main.py" line="84"/>
-        <source>Fran&#xc3;&#xa7;ais</source>
+        <source>FranÃ§ais</source>
         <translation>Français</translation>
     </message>
     <message>
@@ -149,7 +183,7 @@
     </message>
     <message>
         <location filename="../../main.py" line="88"/>
-        <source>Pr&#xc3;&#xa9;ferences...</source>
+        <source>PrÃ©ferences...</source>
         <translation>Préferences...</translation>
     </message>
     <message>
@@ -172,15 +206,15 @@
         <source>SMNP....</source>
         <translation>SMNP....</translation>
     </message>
-    <message encoding="UTF-8">
+    <message>
         <location filename="../tank_plane.py" line="161"/>
         <source>Désignation de la citerne:</source>
-        <translation type="unfinished"></translation>
+        <translation>Désignation de la citerne:</translation>
     </message>
-    <message encoding="UTF-8">
+    <message>
         <location filename="../tank_plane.py" line="162"/>
         <source>Unité:</source>
-        <translation type="unfinished"></translation>
+        <translation>Unité:</translation>
     </message>
 </context>
 </TS>

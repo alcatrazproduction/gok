@@ -1,6 +1,39 @@
 <?xml version="1.0" encoding="utf-8"?>
 <!DOCTYPE TS><TS version="2.0" language="de" sourcelanguage="fr">
 <context>
+    <name>Dialog</name>
+    <message encoding="UTF-8">
+        <location filename="../../settings.py" line="128"/>
+        <source>Préferences</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message encoding="UTF-8">
+        <location filename="../../settings.py" line="129"/>
+        <source>Moteur Base de Données</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../../settings.py" line="130"/>
+        <source>DbHost</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../../settings.py" line="131"/>
+        <source>DbUser</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../../settings.py" line="132"/>
+        <source>DbPass</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../../settings.py" line="133"/>
+        <source>DbName</source>
+        <translation type="unfinished"></translation>
+    </message>
+</context>
+<context>
     <name>mainWindow</name>
     <message>
         <location filename="../tank_plane.py" line="159"/>
