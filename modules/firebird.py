@@ -3,7 +3,7 @@
 import 	fdb
 
 class link:
-	def __init__(self, theHost, theDb,  theUser,  thePw):
+	def __init__(self, theHost, theDb,  thePort,  theUser,  thePw):
 		self.con = fdb.connect(
 						host			= theHost, 
 						database	= theDb,

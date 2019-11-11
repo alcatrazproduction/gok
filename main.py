@@ -21,7 +21,7 @@ from dispatcher 				import dispatcher
 from constant					import const
 
 from modules.tcpip		import listener
-
+from modules.sql			import db
 global _translate
 
 class gestion:
@@ -40,26 +40,20 @@ class gestion:
 #		self.about.logo.setPixmap(QPixmap.fromImage(logo))
 #		self.about.info.setText("Initialising Application")
 		self.about.show()
-		sleep(2)
+		sleep(0.1)
 		
 	def initDatabase(self):
 		
-#		self.about.info.close()
-#		self.about.info.setText("Trying to connect to database")
-#		self.about.show()
-#		thePref			= self.thePref
+		thePref			= self.thePref
 		
-#		while 1:
-#			try:
-#				conn = pymysql.connect(	host		= thePref.elems[0]['DBHost'], 
-#													port		= int( thePref.elems[0]['DBPort'] ), 
-#													user		= thePref.elems[0]['DBUser'], 
-#													passwd	= thePref.elems[0]['DBPass'], 
-#													db			= thePref.elems[0]['DBdb'])
 
-#				cur = conn.cursor()
-#				break
-		None
+		conn = db( 	thePref.elems['DBHost'], 
+							thePref.elems['DBName'], 
+							int( thePref.elems['DBPort'] ), 
+							thePref.elems['DBUser'], 
+							thePref.elems['DBPass'], 
+							thePref.elems['DBEngine'] )
+		self.db	= conn
 		
 	def initApplication(self):
 		
@@ -90,6 +84,8 @@ class gestion:
 			
 
 		self.win			= win
+		self.status		= win.statusBar()
+		self.status.showMessage(_translate("main.py", "appReady"))
 		self.dispatch	= dispatch
 		self.listener		= listener()
 		self.listener.setCallBack( dispatch.updateTank )

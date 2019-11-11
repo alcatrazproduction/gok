@@ -72,6 +72,7 @@ class dispatcher( QtCore.QObject ):
 #																																	#
 ####################################################################################################
 	def _updateTank( self,  ip, tSerial, tLevel, tFull, tHeight ):
+		_translate = QtCore.QCoreApplication.translate
 		try:			
 			if tSerial in self.tabs:
 				tab		= self.tabs[tSerial]
@@ -84,6 +85,10 @@ class dispatcher( QtCore.QObject ):
 			else:
 				gui.tank_plane.createTab( self,  ip, tSerial, tLevel, tFull, tHeight )
 
+			status	= self.win.statusBar()
+			status.showMessage(_translate("dispatcher.py", 
+				"{} serial {} form {} at {:%d-%m-%Y %H:%M}").format( tLevel,  tSerial,  ip, datetime.today() )
+			)
 		except Exception as inst:
 			print(inst)
 			
