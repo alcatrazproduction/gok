@@ -5,6 +5,9 @@ import pickle
 from constant 					import const
 
 class settings:
+	EngineName	= {	'sqlite3':'SqlLite',
+									'mysql':'MySql ( MariaDB )', 
+									'firebird':'FireBird'}
 	elems = [{
 		'DBEngine':'sqlite3', 
 		'DBHost':'', 
