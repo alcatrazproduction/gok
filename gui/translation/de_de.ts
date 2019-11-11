@@ -3,33 +3,54 @@
 <context>
     <name>Dialog</name>
     <message encoding="UTF-8">
-        <location filename="../../settings.py" line="128"/>
+        <location filename="../../settings.py" line="72"/>
         <source>Préferences</source>
         <translation type="unfinished"></translation>
     </message>
     <message encoding="UTF-8">
-        <location filename="../../settings.py" line="129"/>
+        <location filename="../../settings.py" line="73"/>
         <source>Moteur Base de Données</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../settings.py" line="130"/>
+        <location filename="../../settings.py" line="74"/>
         <source>DbHost</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../settings.py" line="131"/>
+        <location filename="../../settings.py" line="75"/>
         <source>DbUser</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../settings.py" line="132"/>
+        <location filename="../../settings.py" line="76"/>
         <source>DbPass</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../settings.py" line="133"/>
+        <location filename="../../settings.py" line="77"/>
         <source>DbName</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../../settings.py" line="78"/>
+        <source>dbPort</source>
+        <translation type="unfinished"></translation>
+    </message>
+</context>
+<context>
+    <name>dispatcher.py</name>
+    <message>
+        <location filename="../../dispatcher.py" line="89"/>
+        <source>{} serial {} form {} at {:%d-%m-%Y %H:%M}</source>
+        <translation type="unfinished"></translation>
+    </message>
+</context>
+<context>
+    <name>main.py</name>
+    <message>
+        <location filename="../../main.py" line="88"/>
+        <source>appReady</source>
         <translation type="unfinished"></translation>
     </message>
 </context>
@@ -131,57 +152,57 @@
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../main.py" line="77"/>
+        <location filename="../../main.py" line="70"/>
         <source>KSW_Gok</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../main.py" line="78"/>
+        <location filename="../../main.py" line="71"/>
         <source>Fic&amp;hier</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../main.py" line="82"/>
+        <location filename="../../main.py" line="75"/>
         <source>&amp;Quitter</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../main.py" line="80"/>
+        <location filename="../../main.py" line="73"/>
         <source>Aide</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../main.py" line="81"/>
+        <location filename="../../main.py" line="74"/>
         <source>Langues</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../main.py" line="83"/>
+        <location filename="../../main.py" line="76"/>
         <source>A propos</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../main.py" line="84"/>
+        <location filename="../../main.py" line="77"/>
         <source>Fran&#xc3;&#xa7;ais</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../main.py" line="85"/>
+        <location filename="../../main.py" line="78"/>
         <source>Italien</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../main.py" line="86"/>
+        <location filename="../../main.py" line="79"/>
         <source>Allemand</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../main.py" line="87"/>
+        <location filename="../../main.py" line="80"/>
         <source>Anglais</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../main.py" line="88"/>
+        <location filename="../../main.py" line="81"/>
         <source>Pr&#xc3;&#xa9;ferences...</source>
         <translation type="unfinished"></translation>
     </message>

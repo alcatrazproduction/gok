@@ -4,34 +4,55 @@
 <context>
     <name>Dialog</name>
     <message>
-        <location filename="../../settings.py" line="128"/>
-        <source>Préferences</source>
-        <translation>Préferences</translation>
-    </message>
-    <message>
-        <location filename="../../settings.py" line="129"/>
-        <source>Moteur Base de Données</source>
-        <translation>Moteur Base de Données</translation>
-    </message>
-    <message>
-        <location filename="../../settings.py" line="130"/>
+        <location filename="../../settings.py" line="74"/>
         <source>DbHost</source>
         <translation>Adresse du serveur</translation>
     </message>
     <message>
-        <location filename="../../settings.py" line="131"/>
+        <location filename="../../settings.py" line="75"/>
         <source>DbUser</source>
         <translation>Nom d&apos;utilisateur</translation>
     </message>
     <message>
-        <location filename="../../settings.py" line="132"/>
+        <location filename="../../settings.py" line="76"/>
         <source>DbPass</source>
         <translation>Mot de passe</translation>
     </message>
     <message>
-        <location filename="../../settings.py" line="133"/>
+        <location filename="../../settings.py" line="77"/>
         <source>DbName</source>
         <translation>Nom de la base de données</translation>
+    </message>
+    <message>
+        <location filename="../../settings.py" line="72"/>
+        <source>Préferences</source>
+        <translation>Préferences</translation>
+    </message>
+    <message>
+        <location filename="../../settings.py" line="73"/>
+        <source>Moteur Base de Données</source>
+        <translation>Moteur Base de Données</translation>
+    </message>
+    <message>
+        <location filename="../../settings.py" line="78"/>
+        <source>dbPort</source>
+        <translation>Port de la base de données</translation>
+    </message>
+</context>
+<context>
+    <name>dispatcher.py</name>
+    <message>
+        <location filename="../../dispatcher.py" line="89"/>
+        <source>{} serial {} form {} at {:%d-%m-%Y %H:%M}</source>
+        <translation>{} l de la citerne {} depuis {} à {:%d-%m-%Y %H:%M}</translation>
+    </message>
+</context>
+<context>
+    <name>main.py</name>
+    <message>
+        <location filename="../../main.py" line="88"/>
+        <source>appReady</source>
+        <translation>Pret a recevoir.....</translation>
     </message>
 </context>
 <context>
@@ -132,57 +153,57 @@
         <translation>kPa</translation>
     </message>
     <message>
-        <location filename="../../main.py" line="77"/>
+        <location filename="../../main.py" line="70"/>
         <source>KSW_Gok</source>
         <translation>KSW_Gok</translation>
     </message>
     <message>
-        <location filename="../../main.py" line="78"/>
+        <location filename="../../main.py" line="71"/>
         <source>Fic&amp;hier</source>
         <translation>Fic&amp;hier</translation>
     </message>
     <message>
-        <location filename="../../main.py" line="82"/>
+        <location filename="../../main.py" line="75"/>
         <source>&amp;Quitter</source>
         <translation>&amp;Quitter</translation>
     </message>
     <message>
-        <location filename="../../main.py" line="80"/>
+        <location filename="../../main.py" line="73"/>
         <source>Aide</source>
         <translation>Aide</translation>
     </message>
     <message>
-        <location filename="../../main.py" line="81"/>
+        <location filename="../../main.py" line="74"/>
         <source>Langues</source>
         <translation>Langues</translation>
     </message>
     <message>
-        <location filename="../../main.py" line="83"/>
+        <location filename="../../main.py" line="76"/>
         <source>A propos</source>
         <translation>A propos</translation>
     </message>
     <message>
-        <location filename="../../main.py" line="84"/>
+        <location filename="../../main.py" line="77"/>
         <source>FranÃ§ais</source>
         <translation>Français</translation>
     </message>
     <message>
-        <location filename="../../main.py" line="85"/>
+        <location filename="../../main.py" line="78"/>
         <source>Italien</source>
         <translation>Italien</translation>
     </message>
     <message>
-        <location filename="../../main.py" line="86"/>
+        <location filename="../../main.py" line="79"/>
         <source>Allemand</source>
         <translation>Allemand</translation>
     </message>
     <message>
-        <location filename="../../main.py" line="87"/>
+        <location filename="../../main.py" line="80"/>
         <source>Anglais</source>
         <translation>Anglais</translation>
     </message>
     <message>
-        <location filename="../../main.py" line="88"/>
+        <location filename="../../main.py" line="81"/>
         <source>PrÃ©ferences...</source>
         <translation>Préferences...</translation>
     </message>
