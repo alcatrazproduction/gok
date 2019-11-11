@@ -1,5 +1,13 @@
 <RCC>
-  <qresource lang="Français" prefix="../icons/svg/fra.svg">
+  <qresource prefix="../icons/svg/fra.svg" lang="Français">
+    <file alias="Reservoir">ImageTank.gif</file>
+    <file alias="Logo">logo.png</file>
     <file>../icons/svg/fra.svg</file>
+  </qresource>
+  <qresource prefix="./gui/resources">
+    <file>logo.png</file>
+  </qresource>
+  <qresource prefix=".">
+    <file>logo.png</file>
   </qresource>
 </RCC>

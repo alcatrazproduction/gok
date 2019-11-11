@@ -6,4 +6,9 @@ class link:
 	def __init__(self, theHost=None, theDb=None,  theUser=None,  thePw=None):
 		self.con	= sqlite3.connect('db/gok.db')
 		self.con.row_factory = sqlite3.Row
-			
+	
+	def doInsert(self):
+		None
+		
+	def doSelect(self):
+		None

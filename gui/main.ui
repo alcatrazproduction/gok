@@ -283,6 +283,11 @@
              <string>SMNP....</string>
             </property>
            </item>
+           <item>
+            <property name="text">
+             <string>Graphique...</string>
+            </property>
+           </item>
           </widget>
          </item>
         </layout>
