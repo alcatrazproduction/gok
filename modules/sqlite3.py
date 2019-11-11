@@ -3,8 +3,8 @@
 import sqlite3
 
 class link:
-	def __init__(self, theHost=None, theDb=None,  theUser=None,  thePw=None):
-		self.con	= sqlite3.connect('db/gok.db')
+	def __init__(self, theHost=None, theDb='db/gok.db',  theUser=None,  thePw=None):
+		self.con	= sqlite3.connect( theDb )
 		self.con.row_factory = sqlite3.Row
 	
 	def doInsert(self):

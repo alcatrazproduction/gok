@@ -8,16 +8,18 @@ class settings:
 	EngineName	= {	'sqlite3':'SqlLite',
 									'mysql':'MySql ( MariaDB )', 
 									'firebird':'FireBird'}
-	elems = [{
+	def_elems = {
+		'$VERS':'0.1', 
 		'DBEngine':'sqlite3', 
 		'DBHost':'', 
-		'DBPort':3306, 
+		'DBPort':0, 
 		'DBUser':'', 
 		'DBPass':'', 
-		'DBdb':'', 
-		'Nom':''
-		}]
-	
+		'DBName':'db/gok.db', 
+		'Language':'fr-fr'
+		}
+	elems		= {}
+	dlg			= None
 	fileName	= "settings.pref"
 	
 	def __init__(self,  theApp):
@@ -34,63 +36,12 @@ class settings:
 		self.writeFile()
 	
 	def actionCombo( self, item ):
-		print( item )
-		if item == 0:
-			i	= len( self.elems )
-			e = {
-				'WANumber':self.elems[ self.last - 1 ]['WANumber'], 
-				'DBHost':self.elems[ self.last - 1 ]['DBHost'], 
-				'DBPort':self.elems[ self.last - 1 ]['DBPort'], 
-				'DBUser':self.elems[ self.last - 1 ]['DBUser'], 
-				'DBPass':self.elems[ self.last - 1 ]['DBPass'], 
-				'DBdb':self.elems[ self.last - 1 ]['DBdb'], 
-				'Nom':'Nouveau ' + self.elems[ self.last - 1 ][ 'Nom' ]
-				}
-
-			self.elems.append( e )
-			row = 0
-			for d in self.elems[ i ]:
-				self.dlg.pref_table.setItem(row, 1,QTableWidgetItem(str( self.elems[ i ][d] )))
-				row +=1
-			self.dlg.menu.addItem( self.elems[ i ]['Nom'], self.elems[ i ] )
-			self.dlg.menu.setCurrentIndex( i+1 )
-		else:
-			self.last = item
-			row = 0
-			for d in self.elems[ item - 2 ]:
-				self.dlg.pref_table.setItem(row, 1,QTableWidgetItem(str( self.elems[ item - 1 ][d] )))
-				print( str( self.elems[ item - 1 ][d] ) )
-				row +=1
+		None
 		
 	def showDialog(self):
-		self.dlg = uic.loadUi( const.prefDialog )
-		pt = self.dlg.pref_table
-		me	= self.dlg.menu
-		
-		pt.setColumnCount( 2 )
-		me.addItem('Ajouter une connection...')
-		me.insertSeparator(2)
-		row=0
-		for s	in self.elems:
-			if row == 0:
-				pt.setRowCount( len( s ))
-				for d in s:
-					print(d)
-					i= QTableWidgetItem(d )
-					i.setFlags(QtCore.Qt.ItemFlag.NoItemFlags)
-					pt.setItem(row, 0,QTableWidgetItem(i ))
-					i = QTableWidgetItem(str( s[d] ))
-					pt.setItem(row, 1, i)
-					row +=1
-			else:
-				me.addItem( s['Nom'], s )
-		self.last	= me.findText( self.elems[0]['Nom'] )
-		me.setCurrentIndex( self.last )
-	
-		
-		pt.resizeColumnToContents(0)
-		self.dlg.buttonBox.accepted.connect( self.actionSave )
-		self.dlg.menu.activated.connect( self.actionCombo )
+		if self.dlg == None:
+			self.dlg = uic.loadUi( const.prefDialog )
+		self.retranslateUi( self.dlg )
 		self.dlg.show()
 		self.dlg.setModal( True )
 		ret 	= self.dlg.exec()
@@ -101,25 +52,15 @@ class settings:
 			theFile		= open( self.fileName,  "rb")
 			self.elems 	= pickle.load(  theFile )
 			theFile.close()
-			if self.elems[0]['Nom'] is None:
-				self.elems[0]['Nom'] = self.elems[0]['DBHost'] + ' ' + str( self.elems[0]['WANumber'] )
+			if not '$VERS' in self.elems:
+				self.elems = self.del_elems
+			if self.elems['$VERS'] is None:
+				self.elems['$VERS'] = '0.1'
 			
 		except:
+			self.elems = self.def_elems
 			print( self.elems )
-			newelems = self.elems
-#			[{
-#				'DBHost':self.elems['DBHost'], 
-#				'DBPort':self.elems['DBPort'], 
-#				'DBUser':self.elems['DBUser'], 
-#				'DBPass':self.elems['DBPass'], 
-#				'DBdb':self.elems['DBdb'], 
-#				'Nom':self.elems['DBHost'] 
-#				}]
-			print( newelems )
-			self.elems = newelems
 			self.writeFile()
-		if len( self.elems ) < 2:
-			self.elems.append( self.elems[0] )
 			
 	def writeFile(self):
 		theFile		= open( self.fileName,  "wb")
@@ -129,8 +70,9 @@ class settings:
 	def retranslateUi(self, Dialog):
 		_translate = QtCore.QCoreApplication.translate
 		Dialog.setWindowTitle(_translate("Dialog", "Préferences"))
-		self.mdbLabel.setText(_translate("Dialog", "Moteur Base de Données"))
-		self.dbHostLabel.setText(_translate("Dialog", "DbHost"))
-		self.dbUserLabel.setText(_translate("Dialog", "DbUser"))
-		self.dbPassLabel.setText(_translate("Dialog", "DbPass"))
-		self.dbNameLabel.setText(_translate("Dialog", "DbName"))
+		Dialog.mdbLabel.setText(_translate("Dialog", "Moteur Base de Données"))
+		Dialog.dbHostLabel.setText(_translate("Dialog", "DbHost"))
+		Dialog.dbUserLabel.setText(_translate("Dialog", "DbUser"))
+		Dialog.dbPassLabel.setText(_translate("Dialog", "DbPass"))
+		Dialog.dbNameLabel.setText(_translate("Dialog", "DbName"))
+		Dialog.dbPortLabel.setText(_translate("Dialog", "dbPort"))

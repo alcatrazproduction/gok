@@ -17,7 +17,6 @@ from time						import	sleep
 
 from theApp					import	theApp
 from settings 					import	settings
-#from t_cards 				import	t_cards
 from dispatcher 				import dispatcher
 from constant					import const
 
@@ -87,18 +86,7 @@ class gestion:
 		win.actionAnglais.setText(_translate("mainWindow", "Anglais"))
 		win.actionPr_ferences.setText(_translate("mainWindow", "Préferences..."))
 
-		now 	= (date. today()).replace(day=1)
-		mn 	= now.month+1
-		if mn > 12:
-			fin=now.replace(year=now.year+1, month=1)
-		else:
-			fin=now.replace( month=mn)
-			
-		mn 	= now.month-1
-		if mn < 0:
-			fin=now.replace(year=now.year-1, month=12)
-		else:
-			fin=now.replace( month=mn)
+
 			
 
 		self.win			= win
@@ -106,11 +94,13 @@ class gestion:
 		self.listener		= listener()
 		self.listener.setCallBack( dispatch.updateTank )
 		win.actionQuitter.triggered.connect(self.listener.stopServer)
+		win.actionApropos.triggered.connect( dispatch.doAbout )
+		win.actionPr_ferences.triggered.connect( dispatch.doPreferences )
 		self.win.tabTank.clear()
 		self.listener.startServer()
 		
 	def	mainLoop(self):
-#		self.about.close()
+		self.about.close()
 #		self.about.info.setText("")
 		self.win.show()
 		ret = self.app.exec()
