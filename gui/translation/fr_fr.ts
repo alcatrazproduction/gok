@@ -1,18 +1,15 @@
 <?xml version="1.0" encoding="utf-8"?>
-<!DOCTYPE TS>
-<TS version="2.1" language="fr" sourcelanguage="fr">
+<!DOCTYPE TS><TS version="2.0" language="fr" sourcelanguage="fr">
 <context>
     <name>mainWindow</name>
     <message>
         <location filename="../tank_plane.py" line="158"/>
         <source>Pourcentage de remplissage:</source>
-        <translatorcomment>Pourcentage de remplissage:</translatorcomment>
         <translation>Pourcentage de remplissage:</translation>
     </message>
     <message>
         <location filename="../tank_plane.py" line="159"/>
         <source>Litrage:</source>
-        <translatorcomment>Litrage:</translatorcomment>
         <translation>Litrage:</translation>
     </message>
     <message>
@@ -132,7 +129,7 @@
     </message>
     <message>
         <location filename="../../main.py" line="84"/>
-        <source>Français</source>
+        <source>Fran&#xc3;&#xa7;ais</source>
         <translation>Français</translation>
     </message>
     <message>
@@ -152,18 +149,8 @@
     </message>
     <message>
         <location filename="../../main.py" line="88"/>
-        <source>Préferences...</source>
+        <source>Pr&#xc3;&#xa9;ferences...</source>
         <translation>Préferences...</translation>
-    </message>
-    <message>
-        <location filename="../tank_plane.py" line="161"/>
-        <source>Désignation de la citerne:</source>
-        <translation>Désignation de la citerne:</translation>
-    </message>
-    <message>
-        <location filename="../tank_plane.py" line="162"/>
-        <source>Unité:</source>
-        <translation>Unité:</translation>
     </message>
     <message>
         <location filename="../tank_plane.py" line="182"/>
@@ -184,6 +171,16 @@
         <location filename="../tank_plane.py" line="186"/>
         <source>SMNP....</source>
         <translation>SMNP....</translation>
+    </message>
+    <message encoding="UTF-8">
+        <location filename="../tank_plane.py" line="161"/>
+        <source>Désignation de la citerne:</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message encoding="UTF-8">
+        <location filename="../tank_plane.py" line="162"/>
+        <source>Unité:</source>
+        <translation type="unfinished"></translation>
     </message>
 </context>
 </TS>

@@ -1,6 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
-<!DOCTYPE TS>
-<TS version="2.1" language="de" sourcelanguage="fr">
+<!DOCTYPE TS><TS version="2.0" language="de" sourcelanguage="fr">
 <context>
     <name>mainWindow</name>
     <message>
@@ -99,16 +98,6 @@
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../tank_plane.py" line="161"/>
-        <source>Désignation de la citerne:</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <location filename="../tank_plane.py" line="162"/>
-        <source>Unité:</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
         <location filename="../../main.py" line="77"/>
         <source>KSW_Gok</source>
         <translation type="unfinished"></translation>
@@ -140,7 +129,7 @@
     </message>
     <message>
         <location filename="../../main.py" line="84"/>
-        <source>Français</source>
+        <source>Fran&#xc3;&#xa7;ais</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
@@ -160,7 +149,7 @@
     </message>
     <message>
         <location filename="../../main.py" line="88"/>
-        <source>Préferences...</source>
+        <source>Pr&#xc3;&#xa9;ferences...</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
@@ -181,6 +170,16 @@
     <message>
         <location filename="../tank_plane.py" line="186"/>
         <source>SMNP....</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message encoding="UTF-8">
+        <location filename="../tank_plane.py" line="161"/>
+        <source>Désignation de la citerne:</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message encoding="UTF-8">
+        <location filename="../tank_plane.py" line="162"/>
+        <source>Unité:</source>
         <translation type="unfinished"></translation>
     </message>
 </context>
