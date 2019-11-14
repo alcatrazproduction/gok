@@ -71,26 +71,24 @@ class CiterneGfx:
 				r		= 18.0
 				rx		= [ 	17.97,  17.89,  17.75, 17.55, 17.29, 16.97, 16.58, 16.12, 15.59, 14.97,
 								14.25, 13.42, 12.45, 11.31, 9.95, 8.25, 5.92, 0.00]
-#				rx1		= [ 	18.00, 17.93, 17.73, 17.39, 16.91, 16.31, 15.59, 14.74, 13.79, 12.73,
-#								11.57, 10.32, 9.00, 7.61, 6.16, 4.66, 3.13, 1.57,0.00]
+				rx1		= [ 	18.00, 17.93, 17.73, 17.39, 16.91, 16.31, 15.59, 14.74, 13.79, 12.73,
+								11.57, 10.32, 9.00, 7.61, 6.16, 4.66, 3.13, 1.57,0.00]
 
-				h		= y1 - y0 + r
+				h		= r + y1 - y0
 				p		= (current * 1.0) / max
 				y		= h - ( h * p )
 				if y > y1-y0 :
-					self.scene.addRect(x2		, y+ y0	, x3-x2		, y1-y0-y		,  self.pRed	,  self.bWhite  )
-					print("y: {}".format(y))
-					for z in range(   int( y-(y1-y0) ), -1, -1	 ):
+					self.scene.addRect(x2		, y+ y0	, x3-x2-2.5		, y1-y0-y		,  self.pRed	,  self.bWhite  )
+					for z in range(   int( y -.5 )-int(y1-y0) ,-1,  -1	 ):
 						try:
-							self.scene.addRect(x0+(r-rx[18-z]) 	, y+y0+z		, x1-x0-(r-rx[18-z])	, 1		,  self.pWhite	,  self.bWhite  )
-							self.scene.addRect(x4							, y+y0+z		, x5-x4-rx[z]			,  1		,  self.pWhite	,  self.bWhite  )
+							self.scene.addRect(x0+r-(rx1[z])+1 	, ( y1)+z		, x2-x0-(r-rx1[z])	, 1		,  self.pWhite	,  self.bWhite  )
+							self.scene.addRect(x4							, y1+z		, x5-(x4-rx[z] ) -r		,  1		,  self.pWhite	,  self.bWhite  )
 						except Exception as inst:
 							print("{}: -> {};{} ".format(inst,  y, z) )
 				elif y < r:
 					self.scene.addRect(x0		,r+ y0		, x1-x0		, y1-y0-r			,  self.pRed	,  self.bRed  )
 					self.scene.addRect(x2		, y+y0		, x3-x2		, y1-y0-y			,  self.pRed	,  self.bRed  )
 					self.scene.addRect(x4		,r+ y0		, x5-x4		, y1-y0-r			,  self.pRed	,  self.bRed  )
-					print("y: {}".format(y))
 					for z in range(  18,  int( y ), -1	 ):
 						try:
 							self.scene.addRect(x0+(18-rx[ 18-z ]) 	, z-1+y0		, x1-x0-(18-rx[ 18-z ])	, 1		,  self.pBlue	,  self.bBlue  )

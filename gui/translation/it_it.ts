@@ -42,14 +42,14 @@
     <name>dispatcher.py</name>
     <message>
         <location filename="../../dispatcher.py" line="89"/>
-        <source>{} serial {} form {} at {:%d-%m-%Y %H:%M}</source>
+        <source>{:8d} serial {:04d} from {} at {:%d-%m-%Y %H:%M:%S}</source>
         <translation type="unfinished"></translation>
     </message>
 </context>
 <context>
     <name>main.py</name>
     <message>
-        <location filename="../../main.py" line="88"/>
+        <location filename="../../main.py" line="92"/>
         <source>appReady</source>
         <translation type="unfinished"></translation>
     </message>
@@ -162,57 +162,57 @@
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../main.py" line="70"/>
+        <location filename="../../main.py" line="74"/>
         <source>KSW_Gok</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../main.py" line="71"/>
+        <location filename="../../main.py" line="75"/>
         <source>Fic&amp;hier</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../main.py" line="75"/>
+        <location filename="../../main.py" line="79"/>
         <source>&amp;Quitter</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../main.py" line="73"/>
+        <location filename="../../main.py" line="77"/>
         <source>Aide</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../main.py" line="74"/>
+        <location filename="../../main.py" line="78"/>
         <source>Langues</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../main.py" line="76"/>
+        <location filename="../../main.py" line="80"/>
         <source>A propos</source>
         <translation type="unfinished"></translation>
     </message>
     <message encoding="UTF-8">
-        <location filename="../../main.py" line="77"/>
+        <location filename="../../main.py" line="81"/>
         <source>Français</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../main.py" line="78"/>
+        <location filename="../../main.py" line="82"/>
         <source>Italien</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../main.py" line="79"/>
+        <location filename="../../main.py" line="83"/>
         <source>Allemand</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../main.py" line="80"/>
+        <location filename="../../main.py" line="84"/>
         <source>Anglais</source>
         <translation type="unfinished"></translation>
     </message>
     <message encoding="UTF-8">
-        <location filename="../../main.py" line="81"/>
+        <location filename="../../main.py" line="85"/>
         <source>Préferences...</source>
         <translation type="unfinished"></translation>
     </message>

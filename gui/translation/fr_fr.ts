@@ -25,12 +25,12 @@
     </message>
     <message>
         <location filename="../../settings.py" line="72"/>
-        <source>Préferences</source>
+        <source>PrÃ©ferences</source>
         <translation>Préferences</translation>
     </message>
     <message>
         <location filename="../../settings.py" line="73"/>
-        <source>Moteur Base de Données</source>
+        <source>Moteur Base de DonnÃ©es</source>
         <translation>Moteur Base de Données</translation>
     </message>
     <message>
@@ -43,14 +43,14 @@
     <name>dispatcher.py</name>
     <message>
         <location filename="../../dispatcher.py" line="89"/>
-        <source>{} serial {} form {} at {:%d-%m-%Y %H:%M}</source>
-        <translation>{} l de la citerne {} depuis {} à {:%d-%m-%Y %H:%M}</translation>
+        <source>{:8d} serial {:04d} from {} at {:%d-%m-%Y %H:%M:%S}</source>
+        <translation>{:8d} l de la citerne {:04d} depuis {} à {:%d-%m-%Y %H:%M:%S}</translation>
     </message>
 </context>
 <context>
     <name>main.py</name>
     <message>
-        <location filename="../../main.py" line="88"/>
+        <location filename="../../main.py" line="92"/>
         <source>appReady</source>
         <translation>Pret a recevoir.....</translation>
     </message>
@@ -153,57 +153,57 @@
         <translation>kPa</translation>
     </message>
     <message>
-        <location filename="../../main.py" line="70"/>
+        <location filename="../../main.py" line="74"/>
         <source>KSW_Gok</source>
         <translation>KSW_Gok</translation>
     </message>
     <message>
-        <location filename="../../main.py" line="71"/>
+        <location filename="../../main.py" line="75"/>
         <source>Fic&amp;hier</source>
         <translation>Fic&amp;hier</translation>
     </message>
     <message>
-        <location filename="../../main.py" line="75"/>
+        <location filename="../../main.py" line="79"/>
         <source>&amp;Quitter</source>
         <translation>&amp;Quitter</translation>
     </message>
     <message>
-        <location filename="../../main.py" line="73"/>
+        <location filename="../../main.py" line="77"/>
         <source>Aide</source>
         <translation>Aide</translation>
     </message>
     <message>
-        <location filename="../../main.py" line="74"/>
+        <location filename="../../main.py" line="78"/>
         <source>Langues</source>
         <translation>Langues</translation>
     </message>
     <message>
-        <location filename="../../main.py" line="76"/>
+        <location filename="../../main.py" line="80"/>
         <source>A propos</source>
         <translation>A propos</translation>
     </message>
     <message>
-        <location filename="../../main.py" line="77"/>
+        <location filename="../../main.py" line="81"/>
         <source>FranÃ§ais</source>
         <translation>Français</translation>
     </message>
     <message>
-        <location filename="../../main.py" line="78"/>
+        <location filename="../../main.py" line="82"/>
         <source>Italien</source>
         <translation>Italien</translation>
     </message>
     <message>
-        <location filename="../../main.py" line="79"/>
+        <location filename="../../main.py" line="83"/>
         <source>Allemand</source>
         <translation>Allemand</translation>
     </message>
     <message>
-        <location filename="../../main.py" line="80"/>
+        <location filename="../../main.py" line="84"/>
         <source>Anglais</source>
         <translation>Anglais</translation>
     </message>
     <message>
-        <location filename="../../main.py" line="81"/>
+        <location filename="../../main.py" line="85"/>
         <source>PrÃ©ferences...</source>
         <translation>Préferences...</translation>
     </message>

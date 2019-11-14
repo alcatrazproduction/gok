@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE Project SYSTEM "Project-5.1.dtd">
 <!-- eric project file for project GOK Tank -->
-<!-- Saved: 2019-11-11, 19:54:03 -->
+<!-- Saved: 2019-11-14, 22:21:35 -->
 <!-- Copyright (C) 2019 Yves Huguenin, yves.huguenin@tricala.org -->
 <Project version="5.1">
   <Language></Language>
@@ -42,8 +42,11 @@ but will be possible to customise and add more ports</Description>
   <Translations>
     <Translation>gui/translation/de_de.qm</Translation>
     <Translation>gui/translation/de_de.ts</Translation>
+    <Translation>gui/translation/en_en.qm</Translation>
     <Translation>gui/translation/en_en.ts</Translation>
+    <Translation>gui/translation/fr_fr.qm</Translation>
     <Translation>gui/translation/fr_fr.ts</Translation>
+    <Translation>gui/translation/it_it.qm</Translation>
     <Translation>gui/translation/it_it.ts</Translation>
   </Translations>
   <Resources>

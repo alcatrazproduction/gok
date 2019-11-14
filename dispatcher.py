@@ -87,7 +87,7 @@ class dispatcher( QtCore.QObject ):
 
 			status	= self.win.statusBar()
 			status.showMessage(_translate("dispatcher.py", 
-				"{} serial {} form {} at {:%d-%m-%Y %H:%M:%S}").format( tLevel,  tSerial,  ip, datetime.today() )
+				"{:8d} serial {:04d} from {} at {:%d-%m-%Y %H:%M:%S}").format( tLevel,  tSerial,  ip, datetime.today() )
 			)
 		except Exception as inst:
 			print(inst)

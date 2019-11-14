@@ -9,10 +9,7 @@
 #######################################################################################################
 from PyQt5 					import	uic, QtCore
 from PyQt5.QtGui			import	QImage ,  QPixmap
-from PyQt5.QtWidgets 	import 	QMessageBox
 
-
-from datetime 				import	date
 from time						import	sleep
 
 from theApp					import	theApp
@@ -31,13 +28,17 @@ class gestion:
 		self.app 			= theApp([])
 		
 		translator			= QtCore.QTranslator()
-#		_translate.load("hellotr_la");
+		locale 				= QtCore.QLocale.system().name()
+		locale				= "gui/translation/{}_{}.qm".format(locale[0:2], locale[0:2])
+		print( locale )
+		translator.load( locale )
 		self.app.installTranslator(translator)
 		_translate = QtCore.QCoreApplication.translate
+		
 		self.thePref 		= settings( self.app )
 		self.about		= uic.loadUi( const.aboutWindow)
-#		logo 				= QImage( const.logoFile )
-#		self.about.logo.setPixmap(QPixmap.fromImage(logo))
+		logo 				= QImage( const.logoFile )
+		self.about.logo.setPixmap(QPixmap.fromImage(logo))
 #		self.about.info.setText("Initialising Application")
 		self.about.show()
 		sleep(0.1)
@@ -62,6 +63,7 @@ class gestion:
 		
 		win 					= uic.loadUi( const.mainWindow )
 		dispatch			= dispatcher( win, self )
+		dispatch.setAbout( self.about )
 		primaryScreen	= self.app.primaryScreen()
 		scrSize				= primaryScreen.size()
 		win.move( scrSize.width()/2 - win.width()/2, scrSize.height()/2 - win.width()/2 )
