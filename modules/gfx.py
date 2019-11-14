@@ -1,11 +1,11 @@
 #!/usr/bin/env python3
 #######################################################################################################
-#	Main class ( gestion) for the app																						#
-#	Was the first writing in no class, don the main loop and init all the stuff								#
-#	Creator:		Yves Huguenin																									#
-#	Date:			28.10.2019																										#
-#	Version:		0.1																												#
-#																																		#
+#	Main class ( gestion) for the app
+#	Was the first writing in no class, don the main loop and init all the stuff
+#	Creator:		Yves Huguenin
+#	Date:			28.10.2019
+#	Version:		0.1
+#								
 #######################################################################################################
 from PyQt5.QtCore	import	Qt
 from PyQt5.QtGui			import		QPen, QBrush,  QImage,  QPixmap
@@ -23,35 +23,38 @@ from constant			import const
 
 class CiterneGfx:
 		bGreen			= QBrush( Qt.green )
-		bRed			= QBrush( Qt.red )
-		bBlack			= QBrush( Qt.black )
-		bBlue			= QBrush( Qt.blue )
-		bWhite			= QBrush( Qt.white )
+		bRed				= QBrush( Qt.red )
+		bBlack				= QBrush( Qt.black )
+		bBlue				= QBrush( Qt.blue )
+		bWhite				= QBrush( Qt.white )
 		pGreen			= QPen( Qt.green )
-		pRed			= QPen( Qt.red )
-		pBlack			= QPen( Qt.black )
-		pBlue			= QPen( Qt.blue )
-		pWhite			= QPen( Qt.white )
+		pRed				= QPen( Qt.red )
+		pBlack				= QPen( Qt.black )
+		pBlue				= QPen( Qt.blue )
+		pWhite				= QPen( Qt.white )
 
 		def __init__(self, theView):
 		
-			print("Init CiternGfx")
-			print( theView )
-			self.view 			= theView
-			theScene			= theView.scene()
-			if theScene == None:
-				theScene	= QGraphicsScene()
-				theView.setScene( theScene )
-			self.scene		= theScene
-			self.bGreen			= QBrush( Qt.green )
-			self.bRed			= QBrush( Qt.red )
-			self.bBlack			= QBrush( Qt.black )
-			self.bBlue			= QBrush( Qt.blue )
-			self.pGreen			= QPen( Qt.green )
-			self.pRed			= QPen( Qt.red )
-			self.pBlack			= QPen( Qt.black )
-			self.pBlue			= QPen( Qt.blue )
-			self.tank				= QPixmap.fromImage( QImage( const.tankFile ) )
+			try:
+				print("Init CiternGfx")
+				self.view 			= theView
+				theScene			= theView.scene()
+				if theScene == None:
+					theScene	= QGraphicsScene()
+					theView.setScene( theScene )
+				self.scene		= theScene
+				self.bGreen		= QBrush( Qt.green )
+				self.bRed			= QBrush( Qt.red )
+				self.bBlack		= QBrush( Qt.black )
+				self.bBlue		= QBrush( Qt.blue )
+				self.pGreen		= QPen( Qt.green )
+				self.pRed			= QPen( Qt.red )
+				self.pBlack		= QPen( Qt.black )
+				self.pBlue		= QPen( Qt.blue )
+				self.tank			= QPixmap.fromImage( QImage( const.tankFile ) )
+				
+			except Exception as inst:
+				print(inst) 	
 			
 		def draw(self,  current,  max):
 			if self.scene:
@@ -72,30 +75,28 @@ class CiterneGfx:
 				h		= y1 - y0 + r
 				p		= (current * 1.0) / max
 				y		= h - ( h * p )
-				print(current)
-				print(max)
-				print(h)
-				print(p)
-				print(y)
 				if y > y1-y0 :
 					self.scene.addRect(x2		, y+ y0	, x3-x2		, y1-y0-y		,  self.pRed	,  self.bWhite  )
 					for z in range(   int( y1-y0-y ), 0	 ):
 						try:
 							self.scene.addRect(x0+(r-rx[18-z]) 	, y+y0+z		, x1-x0-(r-rx[18-z])	, 1		,  self.pWhite	,  self.bWhite  )
-							self.scene.addRect(x4		, y+y0+z		, x5-x4-rx[z]	,  1	,  self.pWhite	,  self.bWhite  )
-						except:
-							None
+							self.scene.addRect(x4							, y+y0+z		, x5-x4-rx[z]			,  1		,  self.pWhite	,  self.bWhite  )
+						except Exception as inst:
+							print(inst)
 				elif y < r:
 					self.scene.addRect(x0		, y+y0		, x1-x0		, y1-y0-r			,  self.pRed	,  self.bRed  )
-					self.scene.addRect(x2		, y+y0		, x3-x2		, y1-y0-y		,  self.pRed	,  self.bRed  )
+					self.scene.addRect(x2		, y+y0		, x3-x2		, y1-y0-y			,  self.pRed	,  self.bRed  )
 					self.scene.addRect(x4		, y+y0		, x5-x4		, y1-y0-r			,  self.pRed	,  self.bRed  )
-					for z in range(   0,  int( y )	 ):
+					for z in range(  int( y ),  0	 ):
 						try:
-							self.scene.addRect(x0+(r-rx[18-z]) 	, z+y0	, x1-x0-(r-rx[18-z])	, 1		,  self.pRed	,  self.bRed  )
-							self.scene.addRect(x4		, z+y0		, x5-x4-rx[z]	,  1		,  self.pRed	,  self.bRed  )
-						except:
-							None
+							self.scene.addRect(x0+(rx[ z ]) 		, z+y0		, x1-x0-(rx[ z ])	, 1		,  self.pRed	,  self.bRed  )
+							self.scene.addRect(x4							, z+y0		, x5-x4+rx[ z ]			,  1		,  self.pRed	,  self.bRed  )
+						except Exception as inst:
+							print(inst) 
 				else:
-					self.scene.addRect(x0		, y+y0		, x1-x0		, y1-y0-y		,  self.pRed	,  self.bGreen  )
-					self.scene.addRect(x2		, y+y0		, x3-x2		, y1-y0-y		,  self.pRed	,  self.bGreen  )
-					self.scene.addRect(x4		, y+y0		, x5-x4		, y1-y0-y		,  self.pRed	,  self.bGreen  )
+					try:
+						self.scene.addRect(x0		, y+y0		, x1-x0		, y1-y0-y		,  self.pRed	,  self.bGreen  )
+						self.scene.addRect(x2		, y+y0		, x3-x2		, y1-y0-y		,  self.pRed	,  self.bGreen  )
+						self.scene.addRect(x4		, y+y0		, x5-x4		, y1-y0-y		,  self.pRed	,  self.bGreen  )
+					except Exception as inst:
+						print(inst) 

@@ -14,12 +14,12 @@ from datetime 			import	datetime
 
 def createTab(self,  ip,  tSerial, tLevel, tFull, tHeight ):
 	global	_translate
-	_translate 		= QtCore.QCoreApplication.translate
-	tab						= {}
+	_translate 											= QtCore.QCoreApplication.translate
+	tab														= {}
 	try:
-		tab['tab1'] 		= QtWidgets.QWidget()
+		tab['tab1'] 									= QtWidgets.QWidget()
 		tab['tab1'] .setObjectName("{}".format( tSerial ))
-		tab['horizontalLayoutWidget'] = QtWidgets.QWidget(tab['tab1'] )
+		tab['horizontalLayoutWidget'] 	= QtWidgets.QWidget(tab['tab1'] )
 		tab['horizontalLayoutWidget'].setGeometry(QtCore.QRect(-1, -1, 641, 431))
 		tab['horizontalLayoutWidget'].setObjectName("horizontalLayoutWidget")
 		tab['horizontalLayout'] = QtWidgets.QHBoxLayout(tab['horizontalLayoutWidget'])
@@ -34,7 +34,7 @@ def createTab(self,  ip,  tSerial, tLevel, tFull, tHeight ):
 		tab['formLayout'].setObjectName("formLayout")
 		tab['label'] = QtWidgets.QLabel(tab['horizontalLayoutWidget'])
 		tab['label'].setObjectName("label")
-		slot	= 0
+		slot												= 0
 		tab['formLayout'].setWidget( slot, QtWidgets.QFormLayout.LabelRole, tab['label'])
 		tab['cPercent'] = QtWidgets.QProgressBar(tab['horizontalLayoutWidget'])
 		tab['cPercent'].setProperty("value", 38)
@@ -44,28 +44,28 @@ def createTab(self,  ip,  tSerial, tLevel, tFull, tHeight ):
 		tab['formLayout'].setWidget( slot, QtWidgets.QFormLayout.FieldRole, tab['cPercent'])
 		tab['label_2'] = QtWidgets.QLabel(tab['horizontalLayoutWidget'])
 		tab['label_2'].setObjectName("label_2")
-		slot += 1
+		slot 											+= 1
 		tab['formLayout'].setWidget( slot, QtWidgets.QFormLayout.LabelRole, tab['label_2'])
 		tab['cCapacity'] = QtWidgets.QLineEdit(tab['horizontalLayoutWidget'])
 		tab['cCapacity'].setObjectName("cCapacity")
 		tab['formLayout'].setWidget( slot, QtWidgets.QFormLayout.FieldRole, tab['cCapacity'])
 		tab['label_3'] = QtWidgets.QLabel(tab['horizontalLayoutWidget'])
 		tab['label_3'].setObjectName("label_3")
-		slot += 1
+		slot 											+= 1
 		tab['formLayout'].setWidget( slot, QtWidgets.QFormLayout.LabelRole, tab['label_3'])
 		tab['cSerial'] = QtWidgets.QLineEdit(tab['horizontalLayoutWidget'])
 		tab['cSerial'].setObjectName("cSerial")
 		tab['formLayout'].setWidget( slot, QtWidgets.QFormLayout.FieldRole, tab['cSerial'])
 		tab['label_4'] = QtWidgets.QLabel(tab['horizontalLayoutWidget'])
 		tab['label_4'].setObjectName("label_4")
-		slot += 1
+		slot 										+= 1
 		tab['formLayout'].setWidget( slot, QtWidgets.QFormLayout.LabelRole, tab['label_4'])
 		tab['cDesign'] = QtWidgets.QLineEdit(tab['horizontalLayoutWidget'])
 		tab['cDesign'].setObjectName("cDesign")
 		tab['formLayout'].setWidget( slot, QtWidgets.QFormLayout.FieldRole, tab['cDesign'])
 		tab['label_5'] = QtWidgets.QLabel(tab['horizontalLayoutWidget'])
 		tab['label_5'].setObjectName("label_5")
-		slot += 1
+		slot 										+= 1
 		tab['formLayout'].setWidget( slot, QtWidgets.QFormLayout.LabelRole, tab['label_5'])
 		tab['cUnite'] = QtWidgets.QComboBox(tab['horizontalLayoutWidget'])
 		tab['cUnite'].setCurrentText("")
@@ -75,35 +75,35 @@ def createTab(self,  ip,  tSerial, tLevel, tFull, tHeight ):
 		tab['formLayout'].setWidget( slot, QtWidgets.QFormLayout.FieldRole, tab['cUnite'])
 		tab['label_6'] = QtWidgets.QLabel(tab['horizontalLayoutWidget'])
 		tab['label_6'].setObjectName("label_6")
-		slot += 1
+		slot 										+= 1
 		tab['formLayout'].setWidget( slot, QtWidgets.QFormLayout.LabelRole, tab['label_6'])
 		tab['cType'] = QtWidgets.QLineEdit(tab['horizontalLayoutWidget'])
 		tab['cType'].setObjectName("cType")
 		tab['formLayout'].setWidget( slot, QtWidgets.QFormLayout.FieldRole, tab['cType'])
 		tab['label_7'] = QtWidgets.QLabel(tab['horizontalLayoutWidget'])
 		tab['label_7'].setObjectName("label_7")
-		slot += 1
+		slot 										+= 1
 		tab['formLayout'].setWidget( slot, QtWidgets.QFormLayout.LabelRole, tab['label_7'])
 		tab['cFull'] = QtWidgets.QLineEdit(tab['horizontalLayoutWidget'])
 		tab['cFull'].setObjectName("cFull")
 		tab['formLayout'].setWidget( slot, QtWidgets.QFormLayout.FieldRole, tab['cFull'])
 		tab['label_8'] = QtWidgets.QLabel(tab['horizontalLayoutWidget'])
 		tab['label_8'].setObjectName("label_8")
-		slot += 1
+		slot 										+= 1
 		tab['formLayout'].setWidget( slot, QtWidgets.QFormLayout.LabelRole, tab['label_8'])
 		tab['cHeight'] = QtWidgets.QLineEdit(tab['horizontalLayoutWidget'])
 		tab['cHeight'].setObjectName("cHeight")
 		tab['formLayout'].setWidget( slot, QtWidgets.QFormLayout.FieldRole, tab['cHeight'])
 		tab['label_9'] = QtWidgets.QLabel(tab['horizontalLayoutWidget'])
 		tab['label_9'].setObjectName("label_9")
-		slot += 1
+		slot 										+= 1
 		tab['formLayout'].setWidget( slot, QtWidgets.QFormLayout.LabelRole, tab['label_9'])
 		tab['cTemp'] = QtWidgets.QLineEdit(tab['horizontalLayoutWidget'])
 		tab['cTemp'].setObjectName("cTemp")
 		tab['formLayout'].setWidget( slot, QtWidgets.QFormLayout.FieldRole, tab['cTemp'])
 		tab['label_10'] = QtWidgets.QLabel(tab['horizontalLayoutWidget'])
 		tab['label_10'].setObjectName("label_10")
-		slot += 1
+		slot 										+= 1
 		tab['formLayout'].setWidget( slot, QtWidgets.QFormLayout.LabelRole, tab['label_10'])
 		tab['cTime'] = QtWidgets.QDateTimeEdit(tab['horizontalLayoutWidget'])
 		tab['cTime'].setInputMethodHints(QtCore.Qt.ImhNone)
@@ -133,11 +133,11 @@ def createTab(self,  ip,  tSerial, tLevel, tFull, tHeight ):
 		tab['dCiterne'].setSceneRect(QtCore.QRectF(0.0, 0.0, 256.0, 429.0))
 		tab['dCiterne'].setObjectName("dCiterne")
 		tab['horizontalLayout'].addWidget(tab['dCiterne'])
-		tab['label_51'] = QtWidgets.QLabel(tab['horizontalLayoutWidget'])
+		tab['label_51'] 		= QtWidgets.QLabel(tab['horizontalLayoutWidget'])
 		tab['label_51'].setObjectName("label_51")
 		slot += 1
 		tab['formLayout'].setWidget( slot, QtWidgets.QFormLayout.LabelRole, tab['label_51'])
-		tab['cAction'] = QtWidgets.QComboBox(tab['horizontalLayoutWidget'])
+		tab['cAction'] 			= QtWidgets.QComboBox(tab['horizontalLayoutWidget'])
 		tab['cAction'].setObjectName("cAction")
 		for x in range(3):
 			tab['cAction'].addItem("")
