@@ -87,7 +87,7 @@ class dispatcher( QtCore.QObject ):
 
 			status	= self.win.statusBar()
 			status.showMessage(_translate("dispatcher.py", 
-				"{} serial {} form {} at {:%d-%m-%Y %H:%M}").format( tLevel,  tSerial,  ip, datetime.today() )
+				"{} serial {} form {} at {:%d-%m-%Y %H:%M:%S}").format( tLevel,  tSerial,  ip, datetime.today() )
 			)
 		except Exception as inst:
 			print(inst)
@@ -95,7 +95,6 @@ class dispatcher( QtCore.QObject ):
 	def updateTank( self,  ip, id, level, capacity, high ):
 		global	_translate
 		
-		print("Callback called")
 		try:
 			tSerial		= int( id, 16)
 			tLevel		= int( level ) / 100.0

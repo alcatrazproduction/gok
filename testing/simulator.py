@@ -15,6 +15,8 @@ from		time			import sleep
 ip			= 'localhost'
 port		= 8000
 wait		= 15
+gfx		= False
+base	= 15
 gok		= {}	
 
 def	send( HOST, PORT, data):
@@ -29,9 +31,9 @@ def	send( HOST, PORT, data):
 		None
 
 def	generate(serial, capacity, height, value):
-#	Gok send 20 bytes	: nn nn nn ii ii QQ QQ QQ QQ QQ	( n ???; iiii id in hex; Q is value of quanty )                                                                                                                   #
+#	Gok send 20 bytes	: nn nn nn ii ii QQ QQ QQ QQ QQ	( n ???; iiii id in hex; Q is value of quanty )                                             
 #							  02 11 08 04CF 0000322000
-#	Gok send 19 bytes	: nn cc cc hh hh nn nn nn nn \0x0a		( n ???; cccc capacity in Hex; hhhh high in Hex )   																						#
+#	Gok send 19 bytes	: nn cc cc hh hh nn nn nn nn \0x0a		( n ???; cccc capacity in Hex; hhhh high in Hex )   							
 #							  21 2134 05DD 0A 0A AA 03
 	return b'000000%04x%010d00%04x%04x00000000\n'%(serial, value*100, capacity, height)
 	
@@ -39,7 +41,14 @@ def	doSimul():
 	while True:
 		for s in gok:
 			d = gok[s]
-			nibble = generate( s, d[0], d[1], randrange(0, d[0]))
+			if gfx:
+				v = d[2] +1
+				if v > base:
+					v = 0
+				nibble = generate( s, d[0], d[1], v)
+				d[2] = v
+			else:
+				nibble = generate( s, d[0], d[1], randrange(0, d[0]))
 			print ( nibble )
 			send( ip,  port,  nibble )
 		sleep( wait )
@@ -67,6 +76,9 @@ if __name__ == "__main__":
 		elif opt in ("-w", "--wait"):
 			wait	= int( sys.argv.pop( sys.argv.index(opt)+1) )
 			ign	= True
+		elif opt in ("-g", "--gfx"):
+			gfx	= True
+			ign	= True
 		else:
 			if opt[0]=='-':
 				try:
@@ -74,7 +86,7 @@ if __name__ == "__main__":
 					v		= sys.argv.pop( sys.argv.index(opt)+1)
 					cp	= int( v[:v.index('.')])
 					he	= int( v[v.index( '.')+1: ])
-					gok[ser] = [cp, he]
+					gok[ser] = [cp, he, base]
 				except:
 					None
 				

@@ -30,19 +30,16 @@ class listener:
 			try:
 				
 				self.wfile.write(b"PC-LINK\n")
-				self.data 	= self.rfile.read(20).strip()
-				print("{} wrote:".format(self.client_address[0]))
-				ip				= self.client_address[0]
-				print("ID: {}".format( self.data[6:10]))
-				id				= self.data[6:10]
-				level		= self.data[10:20]
-				print("Level: {}".format( self.data[10:20]))
-				self.data = self.rfile.read(19).strip()
-				capacity	= self.data[2:6]
-				print("Capacity: {}".format( self.data[2:6]))
-				high			= self.data[6:10]
-				print("High: {}".format( self.data[6:10]))
+				data		 	= self.rfile.read(20).strip()
 				
+				ip				= self.client_address[0]
+				id				= data[6:10]
+				level		= data[10:20]
+				data1 = self.rfile.read(19).strip()
+				capacity	= data1[2:6]
+				high			= data1[6:10]
+				print("{} wrote: ID: {} Level: {} Capacity: {} High: {}".format( self.client_address[0], 
+					data[6:10], data[10:20], data1[2:6], data1[6:10]  ))
 				if callBack:
 					callBack( ip, id, level, capacity, high )
 			except Exception as inst:
