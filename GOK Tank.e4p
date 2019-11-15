@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE Project SYSTEM "Project-5.1.dtd">
 <!-- eric project file for project GOK Tank -->
-<!-- Saved: 2019-11-14, 22:21:35 -->
+<!-- Saved: 2019-11-15, 22:43:32 -->
 <!-- Copyright (C) 2019 Yves Huguenin, yves.huguenin@tricala.org -->
 <Project version="5.1">
   <Language></Language>
@@ -37,6 +37,7 @@ but will be possible to customise and add more ports</Description>
     <Source>sql/schema_fdb.sql</Source>
     <Source>sql/schema_sqlite3.sql</Source>
     <Source>testing/simulator.py</Source>
+    <Source>testing/testGok.py</Source>
     <Source>theApp.py</Source>
   </Sources>
   <Translations>
@@ -55,6 +56,7 @@ but will be possible to customise and add more ports</Description>
   <Others>
     <Other>.gitignore</Other>
     <Other>Doc/data_dump.txt</Other>
+    <Other>Doc/gok_info.txt</Other>
     <Other>Readme.md</Other>
     <Other>db</Other>
     <Other>gui</Other>

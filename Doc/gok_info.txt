@@ -1,0 +1,36 @@
+Type of medium:
+
+Fuel oil					 845 kg/m3 - default setting
+Water					 999 kg/m3
+Diesel					 830 kg/m3
+Biodiesel				 880 kg/m3
+RME, FAME			 880 kg/m3
+Rape oil				 915 kg/m3
+Palm oil				 910 kg/m3
+Motor oil				 865 kg/m3
+AdBlue					1090 kg/m3
+Regular petrol		 743 kg/m3
+Premium	petrol	 750 kg/m3
+
+Density value Enter a special density value
+with different measuring range
+
+Schape:
+
+Linear			Default setting	linear tank, rectangular tanks, vertical cylinders,	basement-welded steel tanks.
+Cylindric		cylindrical tank to 50 m3 (see also alternative cyl. >horiz. 50,000 litres), horizontal cylinders; tubular tanks, typical shape for steel outdoor or buried tanks.
+Ball-shaped	spherical tank; buried tanks with spherical basic shape; frequently plastic buried tank (GRP).
+Oval 			oval basement tanks; typical shape of GRP tanks and single-walled sheet metal tanks
+Convex 		Plastic battery tanks, convex, slightly convex shape, alternative to linear
+Concave 		Plastic battery tanks, concave, slightly concave shape, alternative to linear With recess Plastic tank with recess Plastic tank with a large recess (hollow) in the center (without tape bindings)
+large cylindrical outdoor tank 50000 litres to 100000
+litres; a special bearing chart conversion table can be
+ordered specifically for large cylindrical tanks of 50 m3 to
+100 m3.
+Plate tank or plate tank battery
+linear side walls, with semicircular arc top and bottom.
+Cyl.
+> 50.000 L
+Metal tanks
+Bearing
+chart
