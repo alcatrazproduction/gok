@@ -23,10 +23,14 @@ def	send( HOST, PORT, data):
 	try:
 		with socket.socket(socket.AF_INET, socket.SOCK_STREAM) as s:
 			s.connect((HOST, PORT))
+			sleep(.1)
 			response	= s.recv(1024)
 			print( response )
-			
-			s.sendall( data)
+			while len(data):
+				s.sendall( data[0:20])
+				print(data[0:20])
+				sleep(.1)
+				data = data[20:]
 			s.close()
 	except:
 		None
@@ -36,7 +40,8 @@ def	generate(serial, capacity, height, value):
 #							  02 11 08 04CF 0000322000
 #	Gok send 19 bytes	: nn cc cc hh hh nn nn nn nn \0x0a		( n ???; cccc capacity in Hex; hhhh high in Hex )   							
 #							  21 2134 05DD 0A 0A AA 03
-	return b'000000%04x%010d00%04x%04x00000000\n'%(serial, value*100, capacity, height)
+	return b'02110804CF000032200021213405DD0A0AAA03\n'
+	return b'021108%04x%010d21%04x%04x0A0AAA01\n'%(serial, value*100, capacity, height)
 	
 def	doSimul():
 	while True:
